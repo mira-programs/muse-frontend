@@ -11,54 +11,8 @@ header {
     color: white;
     padding: 10px;
     text-align: center;
-}
-
-.navigation a {
-    position: relative;
-    font-size: 1.1em;
-    color: black;
-    text-decoration: none;
-    font-weight: 500;
-    margin-left: 40px;
-}
-
-.navigation a::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -6px;
-    width: 100%;
-    height: 3px;
-    background: black;
-    border-radius: 5px;
-    transform: scaleX(0);
-    transition: transform .5s;
-}
-
-.navigation a:hover::after {
-    transform-origin: left;
-    transform: scaleX(1);
-}
-
-.navigation .btnSignin-popup {
-    width: 130px;
-    height: 50px;
-    background: transparent;
-    border: 2px solid lavender;
-    outline: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 1.1em;
-    color: black;
-    font-weight: 500;
-    margin-left: 40px;
-    transition: .5s;
-}
-
-.navigation .btnSignin-popup:hover {
-    background: mediumpurple;
-    color: lavender;
-    border: 2px solid lavender;
+    justify-content: space-between;
+    z-index: 99;
 }
 
 nav ul {
@@ -73,8 +27,239 @@ nav ul li {
 }
 
 nav ul li a {
+    position: relative;
+    font-size: 1.1em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+nav ul li a:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+/*
+nav ul li .btnSignin-popup {
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid lavender;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: black;
+    font-weight: 500;
+    margin-left: 40px;
+    transition: .5s;
+}
+
+nav ul li .btnSignin-popup:hover {
+    background: mediumpurple;
+    color: lavender;
+    border: 2px solid lavender;
+}
+
+UPPER 2: FOR IF SIGN IN IS A BUTTON NOT A LINK!!
+
+nav ul li a {
     text-decoration: none;
     color: white;
+}
+*/
+
+.wrapper {
+    position: center;
+    top: 50%;
+    left: 0;        /* adjust these (top, left, transform: translate) for the box to be in the middle! */
+    transform: translate(100%, 0);
+    width: 400px;
+    height: 440px;
+    background: #fff;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+    /*
+    transform: scale(0);
+    transition: transform .5s ease, height .2s ease;
+}
+
+.wrapper.active-popup {
+    transform: scale(1);
+}
+*/
+
+.wrapper.active {
+    height: 520px;
+}
+
+
+.wrapper .form-box {
+    width: 100%;
+    padding: 40px;
+}
+
+.wrapper .form-box.Signin {
+    transform: transform .18s ease;
+    transform: translateX(0);
+}
+
+.wrapper.active .form-box.Signin {
+    transition: none;
+    transform: translateX(-400px);
+}
+
+.wrapper .form-box.Signup {
+    position: absolute;
+    transition: none;
+    transform: translateX(400px);
+}
+
+.wrapper.active .form-box.Signup {
+    position: absolute;
+    transform: translateX(0);
+}
+
+
+.wrapper .icon-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    font-size: 2em;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1  
+}
+
+.form-box h2 {
+    font-size: 2em;
+    color: #333;
+    text-align: center;
+}
+
+.input-box {
+    position: relative;
+    width: 375px;
+    height: 50px;
+    border-bottom: 2px solid #333;
+    margin: 30px 0;
+}
+
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #333;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label {
+    top: -5px;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #333;
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+}
+
+.input-box .icon {
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    color: #333;
+    line-height: 57px;
+}
+
+.remember-forgot {
+    font-size: .9em;
+    color: #333;
+    font-weight: 500;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.remember-forgot label input {
+    accent-color: #333;
+    margin-right: 3px;
+}
+
+.remember-forgot a {
+    color: #333;
+    text-decoration: none;
+}
+
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+
+.btn {
+    width: 100%;
+    height: 45px;
+    background: #333;   
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    color: #fff;
+    font-weight: 500;
+}
+
+.signin-register {
+    font-size: .9em;
+    color: #333;
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px;
+}
+
+.signin-register p a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.signin-register p a:hover {
+    text-decoration: underline;
 }
 
 .Search-Bar {
