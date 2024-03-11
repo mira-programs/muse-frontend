@@ -62,10 +62,10 @@ export const DummyPosts =[
 ];
 
 // Dummy muser data
-import AuthorImage1 from '../assets/surprise.png'
-import AuthorImage2 from '../assets/bearwithme.png'
-import AuthorImage3 from '../assets/cuteduck.png'
-import AuthorImage4 from '../assets/idekanymore.png'
+import AuthorImage1 from '../assets/surprise.jpeg'
+import AuthorImage2 from '../assets/bearwithme.jpeg'
+import AuthorImage3 from '../assets/cuteduck.jpeg'
+import AuthorImage4 from '../assets/idekanymore.jpeg'
 
 
 export const DummyMuser =[

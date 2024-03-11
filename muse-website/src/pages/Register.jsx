@@ -16,6 +16,15 @@ export default function Register() {
     })
   }
 
+  const handleClick=(e)=>{
+    e.preventDefault()
+    console.log(muser);
+  }
+
+  const muser = { name: userData.name, email: userData.email, password: userData.password, password2: userData.password2 };
+  console.log(muser);
+  
+
   return (
     <section className="register">
       <div className="container register-container form-container">
@@ -26,7 +35,7 @@ export default function Register() {
           <input type="email " placeholder='Email' name='email' value={userData.email} onChange={changeInputHandle} />
           <input type="password " placeholder='Password' name='password' value={userData.password} onChange={changeInputHandle} />
           <input type="password " placeholder='Confirm password' name='password2' value={userData.password2} onChange={changeInputHandle} />
-          <button type="submit" className="btn btn-primary">Register</button>
+          <button type="submit" className="btn btn-primary" onClick={handleClick}>Register</button>
         </form>
 
         <small>Already have an account? <Link to={`/login`}>Sign In</Link></small>
