@@ -17,22 +17,28 @@ export default function PostDetail() {
               </Link>
             </div>
         </div>
-        <h1>idk</h1>
+        <h1>money 2.0</h1>
         <div className="postdetail-image">
           <img src={postDetailImage} alt="" />
         </div>
         <div className="postdetail-para">
         <p>
-          write write write write
+          never gonna give you up never gonna let you down never gonna turn around and forget you
         </p>
         <p>
-          write write write write
+          never gonna give you up never gonna let you down never gonna turn around and forget you
         </p>
         <p>
-          write write write write
+          never gonna give you up never gonna let you down never gonna turn around and forget you
         </p>
         <p>
-          write write write write
+          never gonna give you up never gonna let you down never gonna turn around and forget you
+        </p>
+        <p>
+          never gonna give you up never gonna let you down never gonna turn around and forget you
+        </p>
+        <p>
+          never gonna give you up never gonna let you down never gonna turn around and forget you
         </p>
 
         </div>

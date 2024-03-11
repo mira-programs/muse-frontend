@@ -1,7 +1,10 @@
-import React from 'react'
 
 export default function DashBoard() {
   return (
-    <div>DashBoard</div>
+    <section className="dashboard">
+      <div className="container dashboard-container">
+        
+      </div>
+    </section>
   )
 }
