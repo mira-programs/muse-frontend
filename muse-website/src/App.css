@@ -9,7 +9,8 @@
 }
 
 :root{
-    --color-primary: #6f6af8;
+    --color-primary: #102c57;
+    /* --color-primary: #3a4d39; */
     --color-danger: #da0f3f;
     --color-white: #ffff;
     --color-light: #ccc;
@@ -37,7 +38,7 @@ html{
 }
 
 body{
-    background: var(--color-bg);
+    background: #f8f0e5;
     font-size: 16px;
     color: var(--color-gray-700);
 }
@@ -137,7 +138,7 @@ section{
 /* Start Nav Bar*/
 nav{
     background: var(--color-primary);
-    height: 5rem;
+    height: 6.5rem;
     display: grid;
     place-items: center;
     position: fixed;
@@ -155,15 +156,41 @@ nav{
     height: 100%;
 }
 
-.nav-logo h3{
+/* .muse-logo-image{
+    width: 15rem;
+} */
+
+/* .nav-logo h3{
     color: var(--color-white);
     font-size: 1.6rem;
     font-weight: 500;
-}
+} */
 
-.nav-logo h3 span{
+.nav-logo {
+    display: flex; /* Use flexbox to align items horizontally */
+    align-items: center; /* Center items vertically */
+  }
+
+/* .moving-image{
+    width: 200px; 
+    height: auto; 
+    position: relative;
+    top: 50%; 
+    left: 50%; 
+} */
+
+.moving-image {
+    width: 230px; /* Set the width of the image */
+    height: auto; /* Maintain aspect ratio */
+    position: absolute;
+    top: 38%;
+    left: 50%;
+    transform: translate(-315%, -50%); /* Center the image */
+  }
+
+/* .nav-logo h3 span{
     color: var(--color-light);
-}
+} */
 
 .nav-menu{
     display: flex;
@@ -172,7 +199,7 @@ nav{
 }
 
 .nav-menu li a{
-    color: var(--color-white);
+    color: #dac0a3;
 }
 
 .nav-menu li a:hover{
@@ -328,6 +355,7 @@ form{
 }
 
 input, select, textarea{
+    background: #eadbcb;
     width: 100%;
     padding: .7rem 1.1rem;
     border-radius: var(--border-radius-1);

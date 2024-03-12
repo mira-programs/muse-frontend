@@ -58,7 +58,7 @@ export const DummyPosts =[
         muserId: 7,
         title: 'Extra long title for testing to see what happens when i have large titles',
         des: 'happy schumacher'
-    }
+    },
 ];
 
 // Dummy muser data
