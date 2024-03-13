@@ -16,22 +16,24 @@ import karting from '../../src/assets/karting.webp'
 import dude from '../../src/assets/dude.png'
 import moneydrop from '../../src/assets/moneydrop.jpg'
 import schumacher from '../../src/assets/schumacher.jpeg'
+import brPainting1 from '../../src/assets/brPainting1.jpeg'
+import brPainting2 from '../../src/assets/brPainting2.jpeg'
 
 
 export const DummyPosts =[
     {
         id: 1,
-        Image: MONEY,
-        category: 'Poems',
+        Image: brPainting1,
+        category: 'Paintings',
         muserId: 2,
         title: 'money <3',
         des: 'no thoughts, just money'
     },
     {
         id: 2,
-        Image: karting,
-        category: 'Drawings',
-        muserId: 5,
+        Image: brPainting2,
+        category: 'Paintings',
+        muserId: 2,
         title: 'karting',
         des: 'vroom vroom'
     },
@@ -65,7 +67,7 @@ export const DummyPosts =[
 import AuthorImage1 from '../assets/surprise.jpeg'
 import AuthorImage2 from '../assets/bearwithme.jpeg'
 import AuthorImage3 from '../assets/cuteduck.jpeg'
-import AuthorImage4 from '../assets/idekanymore.jpeg'
+import AuthorImage4 from '../assets/bobross.jpeg'
 
 
 export const DummyMuser =[
@@ -73,10 +75,10 @@ export const DummyMuser =[
         id: 1,
         Image: AuthorImage1,
         name: 'Lana White',
-        posts: 2,
+        posts: 4,
     },
     {
-        id: 2,
+        id: 4,
         Image: AuthorImage2,
         name: 'Jane Doe',
         posts: 1,
@@ -88,9 +90,28 @@ export const DummyMuser =[
         posts: 6,
     },
     {
-        id: 4,
+        id: 2,
         Image: AuthorImage4,
-        name: 'Elizabeth the First',
-        posts: 4,
+        name: 'Bob Ross',
+        posts: 2,
+    },
+]
+
+export const DummyBobRoss = [
+    {
+        id: 1,
+        Image: brPainting1,
+        category: 'Paintings',
+        muserId: 2,
+        title: 'Beautiful scenery',
+        des: 'The calm before the storm.'
+    },
+    {
+        id: 2,
+        Image: brPainting2,
+        category: 'Paintings',
+        muserId: 2,
+        title: 'Nature',
+        des: 'The beauty of nature through my eyes <3'
     },
 ]

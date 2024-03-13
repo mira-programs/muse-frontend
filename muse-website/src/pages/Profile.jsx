@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import ProfileImage from '../assets/woman.jpeg'
+import ProfileImage from '../assets/bobross.jpeg'
 import { FaEdit } from "react-icons/fa";
 import { FaCheckCircle } from "react-icons/fa";
 import { useState } from 'react';

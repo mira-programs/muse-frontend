@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 //Components
 import PostAuthor from '../components/PostAuthor'
 // PostDetail image
-import postDetailImage from '../assets/moneydrop.jpg'
+import postDetailImage from '../assets/brPainting1.jpeg'
 
 export default function PostDetail() {
   return (
@@ -17,28 +17,13 @@ export default function PostDetail() {
               </Link>
             </div>
         </div>
-        <h1>money 2.0</h1>
+        <h1>Beautiful Scenery</h1>
         <div className="postdetail-image">
           <img src={postDetailImage} alt="" />
         </div>
         <div className="postdetail-para">
         <p>
-          never gonna give you up never gonna let you down never gonna turn around and forget you
-        </p>
-        <p>
-          never gonna give you up never gonna let you down never gonna turn around and forget you
-        </p>
-        <p>
-          never gonna give you up never gonna let you down never gonna turn around and forget you
-        </p>
-        <p>
-          never gonna give you up never gonna let you down never gonna turn around and forget you
-        </p>
-        <p>
-          never gonna give you up never gonna let you down never gonna turn around and forget you
-        </p>
-        <p>
-          never gonna give you up never gonna let you down never gonna turn around and forget you
+          The calm before the storm.
         </p>
 
         </div>
