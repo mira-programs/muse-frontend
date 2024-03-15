@@ -349,46 +349,46 @@ nav{
 /* End Post Detail */
 
 /* Start Sign Up Sign In*/
-.wrapper1{
-    position: relative;
-    top: 5rem;
-    left: -300px;      
-    transform: translate(140%, -10%);
-    width: 600px;
-    height: 480px;
-    background: #f3e9de;
-    border: 2px solid rgba(255, 255, 255, .5);
-    border-radius: 20px;
-    box-shadow: 0 0 30px var(--color-gray-200);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    display: grid;
-    z-index: 2;
 
-}
-
-.wrapper2{
-    position: relative;
-    top: 5rem;
-    left: 50px;      
-    transform: translate(140%, -10%);
+.wrapper {
+    position: fixed;
+    top: 43%;
+    left: 50%;      
+    transform: translate(-50%, -50%);
     width: 400px;
-    height: 355px;
-    background: #f3e9de;
+    background: var(--color-beige);
     border: 2px solid rgba(255, 255, 255, .5);
     border-radius: 20px;
     box-shadow: 0 0 30px var(--color-gray-300);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    transition: height 0.3s ease;
+    /*overflow: hidden; */  
     z-index: 2;
+}
+
+.wrapper.wrapper-signup{
+    height: 480px;
+}
+
+.wrapper.wrapper-login{
+    height: 350px;
+}
+
+.header{
+    font-size: 1.5rem;
+    margin-bottom: 1rem; 
+    flex-grow: 1;
+    text-align: center; 
 }
 
 form{
     display: flex;
     flex-direction: column;
-    gap: .8rem;
+    align-items: center;
+    gap: 1rem;
 }
 
 input, select, textarea{
@@ -597,6 +597,10 @@ input, select, textarea{
 
 /* Start Footer */
 footer{
+    position:fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
     background: var(--color-gray-900);
     margin-top: 10.8rem;
     padding-top: 5em;

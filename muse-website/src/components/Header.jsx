@@ -17,7 +17,7 @@ export default function Header() {
             </Link>
 
             <ul className="nav-menu">
-                <li><Link to={'/profile/id'}>Username</Link></li>
+                <li><Link to={'/register'}>Sign Up</Link></li>
                 <li><Link to={'/create'}>Create Post</Link></li>
                 {/* <li><Link to={'/muser'}>Musers</Link></li> */}
                 {/* <li><Link to={'/logout'}>Logout</Link></li> */}
