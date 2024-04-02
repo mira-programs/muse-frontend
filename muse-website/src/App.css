@@ -235,7 +235,7 @@ nav{
     gap: 4rem;
     padding-top: 3rem;
     align-items: center;
-    margin-bottom: 4rem;
+    margin-bottom: -65rem;
 }
 
 .head-post-container .post-image{
@@ -602,7 +602,7 @@ footer{
     padding-top: 5em;
 }
 
-.footer-categories{
+/* .footer-categories{
     position: relative;
     display: flex;
     align-items: center;
@@ -623,7 +623,7 @@ footer{
 .footer-categories li a:hover{
     color: var(--color-gray-900);
     background: var(--color-beige);
-}
+} */
 
 .footer-copyright{
     text-align: center;
