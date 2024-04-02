@@ -258,7 +258,7 @@ nav{
     background: var(--color-beige);
     padding: 1rem;
     border-radius: var(--border-radius-4);
-    /* border: 2px solid hsl(30, 76%, 88%); */
+    border: 2px solid hsl(30, 76%, 88%);
     padding-bottom: 2rem;
     transition: var(--transition);
     cursor: pointer;
@@ -315,7 +315,7 @@ nav{
     margin: 4rem auto;
 }
 /* End Posts Component  */
-/* End Home Page  */
+/* End Home Page 
 
 /* Start Pot Detail*/
 .PostDetail-container{
@@ -349,54 +349,38 @@ nav{
 /* End Post Detail */
 
 /* Start Sign Up Sign In*/
-
-.wrapper {
-    position: fixed;
-    top: 43%;
-    left: 50%;      
-    transform: translate(-50%, -50%);
-    width: 400px;
-    background: var(--color-beige);
+.wrapper{
+    position: relative;
+    top: 5rem;
+    left: -400px;      
+    transform: translate(140%, -10%);
+    width: 600px;
+    height: 480px;
+    background: #f3e9de;
     border: 2px solid rgba(255, 255, 255, .5);
     border-radius: 20px;
-    box-shadow: 0 0 30px var(--color-gray-300);
+    box-shadow: 0 0 30px var(--color-gray-200);
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: height 0.3s ease;
-    /*overflow: hidden; */  
+    display: grid;
     z-index: 2;
-}
 
-.wrapper.wrapper-signup{
-    height: 480px;
-}
-
-.wrapper.wrapper-login{
-    height: 350px;
-}
-
-.header{
-    font-size: 1.5rem;
-    margin-bottom: 1rem; 
-    flex-grow: 1;
-    text-align: center; 
 }
 
 form{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 1rem;
+    gap: .8rem;
 }
 
 input, select, textarea{
     background: #eadbcb;
-    width: 100%;
-    padding: .7rem 1.1rem;
+    margin-left: -30%;
+    width: 170%;
+    padding: .7rem 3rem;
     border-radius: var(--border-radius-1);
-    resize: none;;
+    resize: none;
 }
 
 .form-message{
@@ -409,7 +393,23 @@ input, select, textarea{
     border-radius: var(--border-radius-1);
 }
 
-.form-container{
+.form-container1{
+    width: 150%;
+}
+
+.register-form{
+    display: flex; 
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.login-form{
+    display: flex; 
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.form-container2{
     width: 75%;
 }
 
@@ -592,15 +592,11 @@ input, select, textarea{
     gap: 2rem;
     justify-content: center;
     align-items: center;
-}
+} */
 /* End Error Page  */
 
 /* Start Footer */
 footer{
-    position:fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
     background: var(--color-gray-900);
     margin-top: 10.8rem;
     padding-top: 5em;
