@@ -136,7 +136,7 @@ section{
 
 
 /* Start Nav Bar*/
-nav{
+/* nav{
     background: var(--color-primary);
     height: 6.5rem;
     display: grid;
@@ -166,10 +166,10 @@ nav{
     font-weight: 500;
 } */
 
-.nav-logo {
-    display: flex; /* Use flexbox to align items horizontally */
-    align-items: center; /* Center items vertically */
-  }
+/* .nav-logo {
+    display: flex; 
+    align-items: center; 
+  
 
 /* .moving-image{
     width: 200px; 
@@ -177,20 +177,20 @@ nav{
     position: relative;
     top: 50%; 
     left: 50%; 
-} */
+} 
 
 .moving-image {
-    width: 230px; /* Set the width of the image */
-    height: auto; /* Maintain aspect ratio */
+    width: 230px; /* Set the width of the image 
+    height: auto; /* Maintain aspect ratio 
     position: absolute;
     top: 38%;
     left: 50%;
-    transform: translate(-315%, -50%); /* Center the image */
+    transform: translate(-315%, -50%); /* Center the image 
   }
 
 /* .nav-logo h3 span{
     color: var(--color-light);
-} */
+} 
 
 .nav-menu{
     display: flex;
@@ -211,13 +211,13 @@ nav{
     background: transparent;
     color: var(--color-beige);
     display: none;
-}
+}  */
 /* End Nav Bar  */
 
 
 /* Start Home Page*/
 /* Start Posts Component*/
-.muserPosts-container{
+/* .muserPosts-container{
     display: grid;
     grid-template-columns: repeat(2,1fr);
     gap: 4rem;
@@ -313,7 +313,7 @@ nav{
 .page-title{
     text-align: center;
     margin: 4rem auto;
-}
+} */
 /* End Posts Component  */
 /* End Home Page 
 

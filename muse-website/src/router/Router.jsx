@@ -2,11 +2,11 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 
 // Components ................
-import Header from "../components/Header"
+import Header from "../components/Header/Header"
 import Footer from "../components/Footer"
 
 // Pages....................
-import Homepage from '../pages/Homepage'
+import Homepage from '../pages/Homepage/Homepage'
 import PostDetail from '../pages/PostDetail'
 import Muser from '../pages/Muser'
 import Post from '../pages/MuserPosts'

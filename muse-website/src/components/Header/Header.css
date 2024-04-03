@@ -1,0 +1,53 @@
+nav {
+    background: transparent;
+    height: 6.5rem;
+    display: grid;
+    place-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    transition: top 0.3s ease;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.nav-logo {
+    display: flex; /* Use flexbox to align items horizontally */
+    align-items: center; /* Center items vertically */
+}
+
+.moving-image {
+    width: 230px; /* Set the width of the image */
+    height: auto; /* Maintain aspect ratio */
+    position: absolute;
+    top: relative;
+    left: relative;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.nav-menu li a {
+    color: #dac0a3;
+}
+
+.nav-menu li a:hover {
+    color: var(--color-light);
+    transition: var(--transition);
+}
+
+.nav-toggle-button {
+    background: transparent;
+    color: var(--color-beige);
+    display: none;
+}
