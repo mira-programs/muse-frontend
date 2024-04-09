@@ -2,7 +2,7 @@
 
 import React from 'react';
 import './Homepage.css';
-import Posts from '../../components/Posts';
+import Posts from '../../components/Posts/Posts';
 
 const Homepage = () => {
   return (

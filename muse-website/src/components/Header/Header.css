@@ -28,7 +28,7 @@ nav {
     height: auto; /* Maintain aspect ratio */
     position: absolute;
     top: relative;
-    left: relative;
+    left: 0;
 }
 
 .nav-menu {

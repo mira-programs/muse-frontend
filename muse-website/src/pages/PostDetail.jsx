@@ -1,7 +1,7 @@
 // Router link
 import { Link } from 'react-router-dom'
 //Components
-import PostAuthor from '../components/PostAuthor'
+import PostAuthor from '../components/PostAuthor/PostAuthor'
 // PostDetail image
 import postDetailImage from '../assets/brPainting1.jpeg'
 

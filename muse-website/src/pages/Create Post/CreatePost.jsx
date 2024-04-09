@@ -1,7 +1,7 @@
 // UseState
 import { useState } from 'react'
 // Post items
-import PostItem from '../../components/PostItem'
+import PostItem from '../../components/PostItem/PostItem'
 import "./CreatePost.css"
 import axios from 'axios';
 

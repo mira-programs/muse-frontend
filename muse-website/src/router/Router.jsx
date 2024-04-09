@@ -3,9 +3,10 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 
 // Components ................
 import Header from "../components/Header/Header"
-import Footer from "../components/Footer"
+import Footer from "../components/Footer/Footer"
 
 // Pages....................
+import LandingPage from '../pages/LandingPage/LandingPage'
 import Homepage from '../pages/Homepage/Homepage'
 import PostDetail from '../pages/PostDetail'
 import Muser from '../pages/Muser'
@@ -28,7 +29,8 @@ export default function Router() {
     <BrowserRouter>
         <Header />
          <Routes>
-            <Route path="/" element={<Homepage />} />
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/home" element={<Homepage />} />
             <Route path="/muser" element={<Muser />} />
             <Route path="/posts/user/:id" element={<Post />} />
             <Route path="/posts/categories/:category" element={<CategoryPost/>} />

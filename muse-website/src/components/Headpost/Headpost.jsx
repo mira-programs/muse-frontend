@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 // import head post data
-import { HeadPost } from '../data/data'
+import { HeadPost } from '../../data/data'
 
 export default function Headpost() {
   return (

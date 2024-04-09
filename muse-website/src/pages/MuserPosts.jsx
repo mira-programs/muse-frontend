@@ -3,7 +3,7 @@ import { DummyPosts } from '../data/data'
 // UseState
 import { useState } from 'react'
 // Post items
-import PostItem from '../components/PostItem'
+import PostItem from '../components/PostItem/PostItem'
 
 export default function MuserPosts() {
   const [posts, setPosts] = useState(DummyPosts)
