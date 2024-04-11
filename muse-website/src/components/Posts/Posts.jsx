@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios'; // Import Axios
-import PostItem from '../PostItem/PostItem'; // Assuming PostItem is defined and imported correctly
+import axios from 'axios'; 
+import PostItem from '../PostItem/PostItem'; 
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);

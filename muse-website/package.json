@@ -10,12 +10,19 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "antd": "^5.16.1",
+    "bootstrap": "^5.3.3",
+    "localforage": "^1.10.0",
+    "lodash": "^4.17.21",
+    "match-sorter": "^6.3.4",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.10.2",
     "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",
     "react-native-textinput-effects": "^0.6.3",
     "react-native-vector-icons": "^10.0.3",
-    "react-router-dom": "^6.22.3"
+    "react-router-dom": "^6.22.3",
+    "sort-by": "^0.0.2"
   },
   "devDependencies": {
     "@types/react": "^18.2.56",

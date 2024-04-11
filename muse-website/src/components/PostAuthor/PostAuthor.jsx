@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-import AuthorImage from '../assets/woman.jpeg'
+import AuthorImage from '../../assets/woman.jpeg'
 export default function PostAuthor({muserID}) {
   return (
     <Link to={`/posts/user/${muserID}`} className='post-author'>

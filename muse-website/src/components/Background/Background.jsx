@@ -1,7 +1,7 @@
 import './Background.css'
 
 import vid from '../../assets/vid.mp4'
-import pic1 from '../../assets/starryNight.jpeg'
+import pic1 from '../../assets/starrynight.jpg'
 import pic2 from '../../assets/photography.jpeg'
 
 const Background = ({playStatus,heroCount}) => {

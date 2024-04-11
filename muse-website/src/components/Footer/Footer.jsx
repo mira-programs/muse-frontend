@@ -1,10 +1,27 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import './Footer.css';
 // router link.........
 import { Link } from "react-router-dom"
 export default function Footer() {
-  
+
   const [isVisible, setIsVisible] = useState(false);
+
+  const location = useLocation(); 
+  const isLandingPage = location.pathname === '/'; 
+
+  let FooterContent;
+  if (!isLandingPage) {
+      FooterContent = (    
+        <footer id="footer">
+          <div className="container footer-container">
+            <div className="footer-copyright">
+                <small> &copy; Copyright All Rights Reserved</small>
+            </div>
+          </div>
+        </footer>
+      );
+  }
 
   useEffect(() => {
       const handleScroll = () => {
@@ -26,21 +43,5 @@ export default function Footer() {
       };
   }, []);
 
-  return (
-    <footer id="footer">
-      <div className="container footer-container">
-        {/* <ul className="footer-categories">
-            <li><Link to={'/posts/categories/Paintings'}>Paintings</Link></li>
-            <li><Link to={'/posts/categories/Drawings'}>Drawings</Link></li>
-            <li><Link to={'/posts/categories/Photos'}>Photos</Link></li>  
-            <li><Link to={'/posts/categories/Poems'}>Poems</Link></li>  
-            <li><Link to={'/posts/categories/Stories'}>Stories</Link></li>
-        </ul> */}
-
-        <div className="footer-copyright">
-            <small> &copy; Copyright All Rights Reserved</small>
-        </div>
-      </div>
-    </footer>
-  )
+  return FooterContent
 }

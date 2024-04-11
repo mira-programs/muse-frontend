@@ -2,7 +2,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 
 // Components ................
-import Header from "../components/Header/Header"
+import HeaderContent from "../components/HeaderContent/HeaderContent"
 import Footer from "../components/Footer/Footer"
 
 // Pages....................
@@ -27,7 +27,7 @@ export default function Router() {
   return (
     <>
     <BrowserRouter>
-        <Header />
+      <HeaderContent />
          <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/home" element={<Homepage />} />
