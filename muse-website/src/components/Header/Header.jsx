@@ -9,19 +9,6 @@ import { AiOutlineClose } from "react-icons/ai";
 import MuseLogo from '../../assets/muselogo.png'
 
 export default function Header() {
-  
-  let prevScrollpos = window.pageYOffset;
-
-  window.onscroll = function() {
-    let currentScrollPos = window.pageYOffset;
-    if (prevScrollpos > currentScrollPos) {
-      document.getElementById("header").style.top = "0";
-    } else {
-      document.getElementById("header").style.top = "-6.5rem"; // Adjust this value based on your header height
-    }
-    prevScrollpos = currentScrollPos;
-  }
-
   return (
     <nav id="header">
         <div className="container nav-container">

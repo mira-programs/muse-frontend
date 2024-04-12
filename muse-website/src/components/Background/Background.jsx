@@ -1,13 +1,13 @@
 import './Background.css'
 
-import vid from '../../assets/vid.mp4'
-import pic1 from '../../assets/starrynight.jpg'
-import pic2 from '../../assets/photography.jpeg'
+import vid from '../../assets/video.mp4'
+import pic1 from '../../assets/painting.jpg'
+import pic2 from '../../assets/starrynight.jpg'
 
 const Background = ({playStatus,heroCount}) => {
     if (playStatus) {
         return (
-            <video className='background' autoPlay loop muted> 
+            <video className='background' autoPlay loop muted playsInline> 
                 <source src={vid} type='video/mp4' />
             </video>
         )

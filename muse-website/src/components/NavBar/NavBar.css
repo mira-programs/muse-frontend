@@ -1,0 +1,33 @@
+.nav {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px; 
+    color: var(--color-beige);
+  }
+  
+  .nav-logo {
+    font-family: 'Poppins';
+    font-size: 42px;
+    font-weight: 500;
+  }
+  
+.nav-menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    font-size: 18px;
+    gap: 90px;
+}
+  
+.nav-contact {
+    border-radius: 50px;
+    padding: 10px 38px;
+    background: var(--color-beige);
+    color: var(--color-primary);    
+}

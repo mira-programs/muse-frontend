@@ -19,13 +19,13 @@ nav {
 }
 
 .nav-logo {
-    display: flex; /* Use flexbox to align items horizontally */
-    align-items: center; /* Center items vertically */
+    display: flex;
+    align-items: center; 
 }
 
 .moving-image {
-    width: 230px; /* Set the width of the image */
-    height: auto; /* Maintain aspect ratio */
+    width: 230px; 
+    height: auto; 
     position: absolute;
     top: relative;
     left: 0;
