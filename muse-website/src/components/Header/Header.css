@@ -19,11 +19,10 @@ nav {
 }
 
 .nav-logo {
+    width: 0.5rem !important;
     display: flex;
-    align-items: center; 
-}
-
-.moving-image {
+    align-items: center;
+    color: #dac0a3;
     width: 230px; 
     height: auto; 
     position: absolute;

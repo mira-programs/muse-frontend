@@ -12,10 +12,7 @@ export default function Header() {
   return (
     <nav id="header">
         <div className="container nav-container">
-            <Link className="nav-logo" to={'/home'}>
-                {/* <h3>Muse <span>Web</span></h3> */}
-                  <img src={MuseLogo} alt="" className="moving-image"/>
-            </Link>
+            <Link className="nav-logo" to={'/home'}>MUSE</Link>
 
             <ul className="nav-menu">
                 <li><Link to={'/profile/id'}>Username</Link></li>

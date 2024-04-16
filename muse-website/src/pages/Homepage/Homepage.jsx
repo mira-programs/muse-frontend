@@ -13,7 +13,7 @@ const Homepage = () => {
     <div className="homepage">
       <input
         className="search-bar"
-        type="text"
+        type="text" 
         placeholder="Search..."
         value={searchTerm}
         onChange={handleSearchChange}
