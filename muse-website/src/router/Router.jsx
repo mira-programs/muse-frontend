@@ -20,7 +20,7 @@ import Login from '../pages/Login'
 import Logout from '../pages/Logout'
 import Register from '../pages/Register/Register'
 import Profile from '../pages/Profile/Profile'
-import Messages from '../pages/Messages/Messages'
+import Messages from '../pages/DirectMessaging/DirectMessaging'
 
 
 
