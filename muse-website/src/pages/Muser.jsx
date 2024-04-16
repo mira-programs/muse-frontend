@@ -1,6 +1,5 @@
 // Muser Data
 import { useState } from "react"
-import { DummyMuser } from "../data/data"
 import { Link } from "react-router-dom"
 
 export default function Muser() {

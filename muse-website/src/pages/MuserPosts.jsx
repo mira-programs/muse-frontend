@@ -1,5 +1,3 @@
-// Dummy-posts-data
-import { DummyPosts } from '../data/data'
 // UseState
 import { useState } from 'react'
 // Post items

@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
-import { DummyBobRoss } from '../data/data'
 
 export default function DashBoard() {
 
