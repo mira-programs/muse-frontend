@@ -19,7 +19,7 @@ import ErrorPage from '../pages/ErrorPage'
 import Login from '../pages/Login'
 import Logout from '../pages/Logout'
 import Register from '../pages/Register'
-import Profile from '../pages/Profile'
+import Profile from '../pages/Profile/Profile'
 
 
 

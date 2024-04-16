@@ -5,18 +5,18 @@ import { useLocation } from 'react-router-dom';
 
 function HeaderContent() {
 
-    let prevScrollpos = window.pageYOffset;
+  let prevScrollpos = window.scrollY || window.pageYOffset;
 
-    window.onscroll = function() {
-      let currentScrollPos = window.pageYOffset;
-      if (prevScrollpos > currentScrollPos) {
-        document.getElementById("header").style.top = "0";
-      } else {
-        document.getElementById("header").style.top = "-6.5rem"; // Adjust this value based on your header height
-      }
-      prevScrollpos = currentScrollPos;
-    }  
-
+  window.onscroll = function() {
+    let currentScrollPos = window.scrollY || window.pageYOffset;
+    if (prevScrollpos > currentScrollPos) {
+      document.getElementById("header").style.top = "0";
+    } else {
+      document.getElementById("header").style.top = "-6.5rem";
+    }
+    prevScrollpos = currentScrollPos;
+  }
+  
     const location = useLocation(); 
     const isLandingPage = location.pathname === '/'; 
 

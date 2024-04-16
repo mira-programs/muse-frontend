@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import ProfileImage from '../assets/bobross.jpeg'
+import ProfileImage from '../../assets/bobross.jpeg'
 import { FaEdit } from "react-icons/fa";
 import { FaCheckCircle } from "react-icons/fa";
 import { useState } from 'react';
@@ -21,7 +21,7 @@ export default function Profile() {
   return (
     <section className="profile">
       <div className="container profile-container">
-        <Link to={`/myposts/id`}> My Posts</Link>
+        <Link to={`/myposts/id`}>My Posts</Link>
 
 
         <div className="profile-details">
@@ -45,7 +45,7 @@ export default function Profile() {
 
           {/* profile data form */}
 
-          <form action="" className="form profile-data-form">
+          {/* <form action="" className="form profile-data-form">
             <p className="form-message">This is the invalid message</p>
 
             <input type="text " placeholder='Full Name' name='name' value={name} onChange={e => setName(e.target.value)} />
@@ -55,7 +55,7 @@ export default function Profile() {
             <input type="password " placeholder='Confirm New Password' name='confirmNewPassword' value={confirmNewPassword} onChange={e => setConfirmNewPassword(e.target.value)} />
 
             <button type="submit" className="btn btn-primary">Update Profile</button>
-          </form>
+          </form> */}
         </div>
       </div>
     </section>
