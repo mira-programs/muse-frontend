@@ -19,10 +19,15 @@ function HeaderContent() {
   
     const location = useLocation(); 
     const isLandingPage = location.pathname === '/'; 
+    const isLogin = location.pathname === '/register'; 
+    const isRegister = location.pathname === '/register'; 
 
     let HeaderContent;
     if (isLandingPage) {
         HeaderContent = (<NavBar/>);
+    }
+    else if (isLogin || isRegister) {
+      HeaderContent = null;
     }
     else {
         HeaderContent = (<Header/>);
