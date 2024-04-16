@@ -1,4 +1,4 @@
-nav {
+.nav {
     background: transparent;
     height: 6.5rem;
     display: grid;
@@ -19,11 +19,9 @@ nav {
 }
 
 .nav-logo {
-    width: 0.5rem !important;
     display: flex;
     align-items: center;
     color: #dac0a3;
-    width: 230px; 
     height: auto; 
     position: absolute;
     top: relative;
