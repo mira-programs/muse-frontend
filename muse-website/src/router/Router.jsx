@@ -20,6 +20,7 @@ import Login from '../pages/Login'
 import Logout from '../pages/Logout'
 import Register from '../pages/Register'
 import Profile from '../pages/Profile/Profile'
+import Messages from '.../pages/Messages/Messages'
 
 
 
@@ -42,6 +43,7 @@ export default function Router() {
             <Route path="/posts/:id" element={<PostDetail />} />
             <Route path="/register" element={<Register />} />
             <Route path="/profile/:id" element={<Profile/>} />
+            <Route path="/messages" element={<Messages />} />
             <Route path="*" element={<ErrorPage />} />
          </Routes>
         <Footer />
