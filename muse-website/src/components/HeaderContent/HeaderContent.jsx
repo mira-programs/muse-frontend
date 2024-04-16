@@ -19,7 +19,7 @@ function HeaderContent() {
   
     const location = useLocation(); 
     const isLandingPage = location.pathname === '/'; 
-    const isLogin = location.pathname === '/register'; 
+    const isLogin = location.pathname === '/login'; 
     const isRegister = location.pathname === '/register'; 
 
     let HeaderContent;

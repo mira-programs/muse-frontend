@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export default function DashBoard() {
 
   // const[posts, setPosts] = useState([]);
-  const[posts, setPosts] = useState(DummyBobRoss);
+  const[posts, setPosts] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {

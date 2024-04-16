@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import './Footer.css';
-// router link.........
 import { Link } from "react-router-dom"
-export default function Footer() {
 
+export default function Footer() {
   const [isVisible, setIsVisible] = useState(false);
 
   const location = useLocation(); 
@@ -12,7 +11,7 @@ export default function Footer() {
 
   let FooterContent;
   if (!isLandingPage) {
-      FooterContent = (    
+      FooterContent = (
         <footer id="footer">
           <div className="container footer-container">
             <div className="footer-copyright">
@@ -43,5 +42,5 @@ export default function Footer() {
       };
   }, []);
 
-  return FooterContent
+  return isVisible ? FooterContent : null;
 }

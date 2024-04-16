@@ -18,7 +18,7 @@ import DeletePosts from '../pages/DeletePosts'
 import ErrorPage from '../pages/ErrorPage'
 import Login from '../pages/Login'
 import Logout from '../pages/Logout'
-import Register from '../pages/Register'
+import Register from '../pages/Register/Register'
 import Profile from '../pages/Profile/Profile'
 import Messages from '../pages/Messages/Messages'
 
