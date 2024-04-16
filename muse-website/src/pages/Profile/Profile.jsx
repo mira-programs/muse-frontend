@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import ProfileImage from '../../assets/bobross.jpeg';
 import { FaEdit, FaCheckCircle } from "react-icons/fa";
 import { useState } from 'react';
+import './Profile.css';
 
 export default function Profile() {
   const [profileImage, setProfileImage] = useState('');
@@ -13,48 +14,27 @@ export default function Profile() {
   const [contactInfo, setContactInfo] = useState('');
 
   return (
-    <section className="profile">
-      <div className="container profile-container">
-      <Link to={`/myposts/id`}>My Posts</Link>
-        <div className="profile-details">
-          <div className="profile-wrapper">
-            <div className="profile-image">
-              <img src={ProfileImage} alt="" />
-            </div>
-            <form className="profile-image-form">
-              <input type="file" name='profile-image' id='profile-image' accept='png, jpg, jpeg' onChange={e => setProfileImage(e.target.files[0])} />
-            </form>
-            <button className="profile-image-button">
-              <FaCheckCircle />
-            </button>
-          </div>
+    <div className="profile">
+      <header className="profile-header">
+        {/* Background image is set via CSS */}
+      </header>
 
-          <div className="profile-info">
-            <h2>{name}</h2>
-            <p>{bio}</p>
-
-            <div className="section">
-              <h3>Experience</h3>
-              <p>{experience}</p>
-            </div>
-
-            <div className="section">
-              <h3>Education</h3>
-              <p>{education}</p>
-            </div>
-
-            <div className="section">
-              <h3>Skills</h3>
-              <p>{skills}</p>
-            </div>
-
-            <div className="section">
-              <h3>Contact Information</h3>
-              <p>{contactInfo}</p>
-            </div>
-          </div>
+      <div className="profile-container">
+        <div className="profile-avatar">
+          <img src="path-to-your-profile-image.jpg" alt="Profile" />
+        </div>
+        
+        <div className="profile-info">
+          <h1>John Doe</h1>
+          <h2>Senior Financial Analyst at First National Bank</h2>
+          <p>Toronto, Canada Area</p>
+          
+          <p className="section-title">Summary</p>
+          <p>Experienced analyst specializing in financial analysis, modeling, and regulation with a can-do attitude and problem-solving skills. Worked for CFO, identified weaknesses in banks, and impacts of regulation on the industry.</p>
+          
+          {/* Repeat for other sections such as Experience, Education, Skills, etc. */}
         </div>
       </div>
-    </section>
-  )
+    </div>
+  );
 }
