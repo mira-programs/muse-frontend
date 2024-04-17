@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import ProfileImage from '../../assets/bobross.jpeg';
 import { FaEdit, FaCheckCircle } from "react-icons/fa";
 import { useState } from 'react';
 import './Profile.css';
