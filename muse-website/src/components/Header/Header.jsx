@@ -5,9 +5,6 @@ import { Link } from 'react-router-dom'
 import { FaBars } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
 
-// import muse logo
-import MuseLogo from '../../assets/muselogo.png'
-
 export default function Header() {
   return (
     <nav id="header">

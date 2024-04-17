@@ -1,24 +1,44 @@
+/* homepage.css file */
+
+.search-bar-container {
+    display: flex;
+    align-items: center;
+}
+
 .search-bar {
-    width: 100%;
+    width: 80%;
     padding: 0.5rem 1rem;
     border: 2px solid var(--color-gray-400);
     border-radius: 0.5rem;
     font-size: 1rem;
     outline: none;
+    margin: 2rem auto; 
+    display: block; 
 }
-  
+
 .search-bar::placeholder {
     color: var(--color-gray-500);
 }
-  
+
 .search-bar:focus {
     border-color: var(--color-primary);
 }
 
-.muserPosts-container {
+.search-mode-toggle {
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--color-gray-400);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    outline: none;
+    margin: 2rem auto; 
+    display: block; 
+}
+
+.userPosts-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 4rem;
+    margin-top: 2rem; 
 }
 
 .posts-container,
@@ -37,23 +57,21 @@
     margin-bottom: 3rem; 
 }
 
-.head-post-container .post-image {
+.head-post-container.post-image {
     padding-top: 150%;
     height: fit-content;
 }
 
 .head-post-container h1 {
-    padding-top: 190%;
     margin-bottom: 0.5rem;
-    padding-left: 35%;
-    position: center;
+    text-align: center; /* Change to center alignment */
     font-size: 2.4rem;
     line-height: 1.4;
     color: var(--color-gray-900);
 }
 
 .head-post-container p {
-    padding-left: 35%;
+    text-align: center; /* Change to center alignment */
     font-size: 17px;
     line-height: 1.5;
 }
@@ -118,4 +136,3 @@
     text-align: center;
     margin: 4rem auto;
 }
-  

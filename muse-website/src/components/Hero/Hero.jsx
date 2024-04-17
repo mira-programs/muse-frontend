@@ -19,7 +19,7 @@
           <p>{heroData.text2}</p>
         </div>
         <div className="hero-explore">
-          <p>Explore the features</p>
+          <p>Explore</p>
           <IoArrowForwardCircleOutline Link to={'/Explore'}/>
         </div>
         <div className="hero-dot-play">

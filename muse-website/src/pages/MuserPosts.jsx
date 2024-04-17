@@ -4,7 +4,7 @@ import { useState } from 'react'
 import PostItem from '../components/PostItem/PostItem'
 
 export default function MuserPosts() {
-  const [posts, setPosts] = useState(DummyPosts)
+  const [posts, setPosts] = useState('')
   return (
     <section className="muserPosts">
       <h1 className="page-title">Muser Posts</h1>
