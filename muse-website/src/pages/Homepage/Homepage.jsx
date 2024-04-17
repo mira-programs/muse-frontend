@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Homepage.css';
 import Posts from '../../components/Posts/Posts';
+import { IoIosSearch } from "react-icons/io";
 
 const Homepage = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -29,6 +30,11 @@ const Homepage = () => {
   const handleTagSelect = (event) => {
     setSearchTerm(event.target.value);
     setSearchMode('tags');
+  };
+
+  const handleSearchSubmit = () => {
+    console.log("Search term:", searchTerm);
+    console.log("Search mode:", searchMode);
   };
 
   return (
@@ -62,6 +68,9 @@ const Homepage = () => {
             <option value="users">Search by user</option>
             <option value="tags">Search by post</option>
           </select>
+        </div>
+        <div className="search-icon" onClick={handleSearchSubmit}>
+          <IoIosSearch size={24} />
         </div>
       </div>
 
