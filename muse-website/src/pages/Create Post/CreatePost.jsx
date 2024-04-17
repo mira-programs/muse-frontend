@@ -81,7 +81,7 @@ export default function CreatePost() {
             required
           />
         </div>
-        <div className="form-group">
+        {/* <div className="form-group">
           <label htmlFor="author">Author</label>
           <input
             type="text"
@@ -91,7 +91,7 @@ export default function CreatePost() {
             onChange={(e) => setAuthor(e.target.value)}
             required
           />
-        </div>
+        </div> */}
         <button type="submit" className="btn">Submit Post</button>
       </form>
     </section>
