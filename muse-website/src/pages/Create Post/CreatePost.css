@@ -22,7 +22,7 @@
   .create-post-container {
     width: 80%;
     position: relative;
-    transform: translate(12%, 10%);
+    transform: translate(12%, -25%);
     padding: 20px;
     background: #f9f9f9;
     border-radius: 8px;
@@ -62,12 +62,13 @@
   
   .btn {
     padding: 10px 20px;
-    background-color: #0056b3;
+    background-color: #86909b;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
+    margin-left: 45%;
   }
   
   .btn:hover {

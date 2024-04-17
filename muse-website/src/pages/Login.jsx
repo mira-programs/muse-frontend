@@ -1,48 +1,51 @@
-  import { useState } from "react"
-  import { Link } from "react-router-dom"
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
-  export default function Login() {
+export default function Login() {
+  const navigate = useNavigate(); // Hook to navigate
+  const [userData, setUserData] = useState({
+    email: "",
+    password: "",
+  });
 
-      const [userData, setUserData] = useState({
-        email: "",
-        password: "",
+  const changeInputHandle = (e) => {
+    setUserData((prevState) => {
+      return { ...prevState, [e.target.name]: e.target.value };
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch("http://localhost:8080/login", { // Corrected the URL to the login endpoint
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userData),
       });
-    
-      const changeInputHandle = (e) => {
-        setUserData((prevState) => {
-          return { ...prevState, [e.target.name]: e.target.value };
-        });
-      };
-    
-      const handleSubmit = async (e) => {
-        e.preventDefault();
-    
-        try {
-          const response = await fetch("your-authentication-api-endpoint", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(userData),
-          });
-    
-          if (response.ok) {
-            console.log("Login successful");
-            history.push(`/profile/${userData.id}`);
-          } else {
-            console.error("Login failed");
-          }
-        } catch (error) {
-          console.error("Error during login:", error);
-        }
-      };
+
+      const data = await response.json(); // Parse the JSON response
+
+      if (response.ok) {
+        console.log("Login successful", data);
+        navigate('/home'); // Navigate to the homepage or wherever you need
+      } else {
+        console.error("Login failed", data);
+        // You could update state here to show an error message to the user
+      }
+    } catch (error) {
+      console.error("Error during login:", error);
+    }
+  };
 
     return (
       <section className="login">
         <div className="wrapper wrapper-login">
             <div className="container login-container form-container">
             <h2 className="header">Login</h2>
-            <form action="" className="form register-form"  onSubmit={handleSubmit}>
+            <form className="form register-form"  onSubmit={handleSubmit}>
               {/* <p className="form-message">This is the invalid message</p> */}
               <input type="email" placeholder='Email' name='email' value={userData.email} onChange={changeInputHandle} required />
               <input type="password" placeholder='Password' name='password' value={userData.password} onChange={changeInputHandle} required />
