@@ -39,11 +39,11 @@ const Register = () => {
                 <div className="container register-container form-container">
                     <h2>Register</h2>
                     <form className="form register-form" onSubmit={handleSubmit}>
-                        <input type="text" placeholder='First Name' name='firstName' value={formData.firstName} onChange={handleChange} required/>
-                        <input type="text" placeholder='Last Name' name='lastName' value={formData.lastName} onChange={handleChange} required />
-                        <input type="text" placeholder='Username' name='username' value={formData.username} onChange={handleChange} required />
-                        <input type="email" placeholder='Email' name='email' value={formData.email} onChange={handleChange} required />
-                        <input type="password" placeholder='Password' name='password' value={formData.password} onChange={handleChange} required/>
+                        <input className="register-input" type="text" placeholder='First Name' name='firstName' value={formData.firstName} onChange={handleChange} required/>
+                        <input className="register-input" type="text" placeholder='Last Name' name='lastName' value={formData.lastName} onChange={handleChange} required />
+                        <input className="register-input" type="text" placeholder='Username' name='username' value={formData.username} onChange={handleChange} required />
+                        <input className="register-input" type="email" placeholder='Email' name='email' value={formData.email} onChange={handleChange} required />
+                        <input className="register-input" type="password" placeholder='Password' name='password' value={formData.password} onChange={handleChange} required/>
                         <button type="submit" className="btn btn-primary">Register</button>
                     </form>
 

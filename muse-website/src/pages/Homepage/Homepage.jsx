@@ -11,15 +11,18 @@ const Homepage = () => {
   const [tags, setTags] = useState([]);
 
   useEffect(() => {
-    const fetchTags = async () => {
-      const response = await fetch('/api/tags'); //fetch tags from backend
-      const data = await response.json();
-      setTags(data);
-    };
+    // Fetch the tag list from backend or define statically if not dynamic
+    setTags(['Science Fiction', 'Fantasy', 'Gaming', 'Anime', 'Cartoon', 'Fanfiction',
+             'Horror', 'Biography', 'Thriller', 'Minimalism', 'Expressionsim', 
+             'Impressionism', 'Pop Art', 'Renaissance', 'Abstract', 'Modern', 
+             'Romance', 'Adventure', 'History', 'Technology', 'Futurism']);
+}, []);
 
-    fetchTags();
-  }, []);
-
+const handleAddTag = (tag) => {
+    if (!selectedTags.includes(tag)) {
+        setSelectedTags([...selectedTags, tag]);
+    }
+  }
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
   };

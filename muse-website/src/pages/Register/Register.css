@@ -22,7 +22,7 @@ form{
     gap: .8rem;
 }
 
-input, select, textarea{
+.register-input, select, textarea{
     background: #eadbcb;
     margin-left: -30%;
     width: 170%;
