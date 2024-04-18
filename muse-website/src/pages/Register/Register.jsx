@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 import axios from 'axios';
 import { Link } from 'react-router-dom'; // Make sure to import Link
+import './Register.css';
 
 const Register = () => {
     // State to store form data
