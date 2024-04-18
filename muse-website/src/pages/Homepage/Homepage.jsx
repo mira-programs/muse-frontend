@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { CgSearch } from "react-icons/cg";
 import './Homepage.css';
 import Posts from '../../components/Posts/Posts';
 import Select from 'react-select';
@@ -16,13 +17,14 @@ const Homepage = () => {
              'Horror', 'Biography', 'Thriller', 'Minimalism', 'Expressionsim', 
              'Impressionism', 'Pop Art', 'Renaissance', 'Abstract', 'Modern', 
              'Romance', 'Adventure', 'History', 'Technology', 'Futurism']);
-}, []);
+  }, []);
 
-const handleAddTag = (tag) => {
+  const handleAddTag = (tag) => {
     if (!selectedTags.includes(tag)) {
         setSelectedTags([...selectedTags, tag]);
     }
   }
+  
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
   };
@@ -37,6 +39,16 @@ const handleAddTag = (tag) => {
     const selectedValues = selectedOption.map(option => option.value);
     setSearchTerm(selectedValues.join(', '));
     setSearchMode('tags');
+  };
+
+  const handleSearchClick = () => {
+    if (searchMode === 'users') {
+      // Perform user search
+      console.log('User search:', searchTerm);
+    } else if (searchMode === 'tags') {
+      // Perform post search
+      console.log('Post search:', searchTerm);
+    }
   };
 
   return (
@@ -65,10 +77,11 @@ const handleAddTag = (tag) => {
             value={searchMode}
             onChange={(e) => handleSearchModeChange(e.target.value)}
           >
-            <option value="users">Search by user</option>
-            <option value="tags">Search by post</option>
+            <option value="users">User</option>
+            <option value="tags">Post</option>
           </select>
         </div>
+        <button className="search-icon" onClick={handleSearchClick}><CgSearch /></button>
       </div>
 
       <div>
