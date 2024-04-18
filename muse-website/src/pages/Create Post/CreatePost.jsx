@@ -52,7 +52,7 @@ const CreatePost = () => {
           onChange={handleInputChange}
           required
         />
-        <textarea
+        <textarea className="createpost-textarea"
           name="content"
           placeholder="Content"
           value={postData.content}
