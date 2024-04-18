@@ -1,4 +1,4 @@
-.nav {
+.nav-bar {
   position: fixed;
   top: 0;
   left: 0;
@@ -9,30 +9,31 @@
   align-items: center;
   padding: 1rem 2rem;
   color: var(--color-beige);
+  transition: top 0.3s ease;
 }
 
-.nav-logo {
+.nav-bar-logo {
   font-family: 'Poppins';
   font-size: 2.625rem; 
   font-weight: 500;
 }
 
-.nav-menu {
+.nav-bar-menu {
   display: flex;
   align-items: center;
   list-style: none;
   gap: 2rem; 
 }
 
-.nav-menu li {
+.nav-bar-menu li {
   margin-right: 1rem;
 }
 
-.nav-menu li:last-child {
+.nav-bar-menu li:last-child {
   margin-right: 0;
 }
 
-.nav-menu a {
+.nav-bar-menu a {
   text-decoration: none;
   color: inherit;
 }
@@ -50,7 +51,7 @@
 }
 
 @media (max-width: 768px) {
-  .nav-menu {
+  .nav-bar-menu {
       display: none; 
   }
 

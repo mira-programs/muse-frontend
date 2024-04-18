@@ -14,9 +14,9 @@
   body {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* This will center the container vertically */
-    height: 100vh; /* Full height of the viewport */
-    margin: 0; /* Remove default margin */
+    justify-content: center;
+    height: 100vh; 
+    margin: 0; 
   }
   
   .create-post-container {
@@ -75,14 +75,12 @@
     background-color: #004494;
   }
 
-  /* Add styles for file input */
 .create-post-container input[type="file"] {
     width : 100%;
     display: block;
     margin: 10px 0;
   }
   
-  /* Style for the upload box */
   .image-upload-container {
     border: 2px dashed #ccc;
     padding: 20px;

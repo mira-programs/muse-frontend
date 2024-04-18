@@ -1,13 +1,14 @@
+/* header.css */
 .nav {
+    position: fixed;
+    left: 0;
+    top: 0;
     background: transparent;
     height: 6.5rem;
     display: grid;
     place-items: center;
-    position: fixed;
-    top: 10px;
-    left: 0;
     width: 100%;
-    z-index: 100;
+    z-index: 1000;
     transition: top 0.3s ease;
 }
 
@@ -15,14 +16,16 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 200%;
+    height: 100%;
 }
 
 .nav-logo {
+    font-family: 'Poppins';
     display: flex;
     align-items: center;
     color: #dac0a3;
     height: auto; 
+    font-size: 1.8rem; 
 }
 
 .nav-menu {

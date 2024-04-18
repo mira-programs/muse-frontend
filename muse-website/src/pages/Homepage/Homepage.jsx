@@ -1,71 +1,77 @@
 import React, { useState, useEffect } from 'react';
 import './Homepage.css';
 import Posts from '../../components/Posts/Posts';
-import { IoIosSearch } from "react-icons/io";
-import axios from 'axios';
+import Select from 'react-select';
 
-function Homepage() {
-    const [tags, setTags] = useState([]);
-    const [selectedTags, setSelectedTags] = useState([]);
-    const [searchResults, setSearchResults] = useState([]);
+const Homepage = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [searchMode, setSearchMode] = useState('users');
+  const [selectedTags, setSelectedTags] = useState([]);
+  const [tags, setTags] = useState([]);
 
-    useEffect(() => {
-        // Fetch the tag list from backend or define statically if not dynamic
-        setTags(['Science Fiction', 'Fantasy', 'Gaming', 'Anime', 'Cartoon', 'Fanfiction',
-                 'Horror', 'Biography', 'Thriller', 'Minimalism', 'Expressionsim', 
-                 'Impressionism', 'Pop Art', 'Renaissance', 'Abstract', 'Modern', 
-                 'Romance', 'Adventure', 'History', 'Technology', 'Futurism']);
-    }, []);
-
-    const handleAddTag = (tag) => {
-        if (!selectedTags.includes(tag)) {
-            setSelectedTags([...selectedTags, tag]);
-        }
+  useEffect(() => {
+    const fetchTags = async () => {
+      const response = await fetch('/api/tags'); //fetch tags from backend
+      const data = await response.json();
+      setTags(data);
     };
 
-    const handleSearch = async () => {
-        try {
-            const response = await axios.get('http://localhost:8080/search', {
-                params: {
-                    type: 'tags',
-                    query: selectedTags.join(',')
-                }
-            });
-            setSearchResults(response.data);
-        } catch (error) {
-            console.error('Error fetching posts:', error);
-        }
-    };
+    fetchTags();
+  }, []);
 
-    return (
-        <div>
-            <div className='searchbar'>
-                <select onChange={(e) => handleAddTag(e.target.value)} value="">
-                    <option value="">Select a tag...</option>
-                    {tags.map(tag => (
-                        <option key={tag} value={tag}>{tag}</option>
-                    ))}
-                </select>
-            </div>
-            <div>
-                <input 
-                    type="text" 
-                    value={selectedTags.join(', ')} 
-                    readOnly
-                />
-                <button className='search-icon' onClick={handleSearch}>Search</button>
-            </div>
-            <div>
-                {searchResults.length > 0 ? (
-                    <ul>
-                        {searchResults.map(post => (
-                            <li key={post._id}>{post.title}</li>
-                        ))}
-                    </ul>
-                ) : <p>No results found</p>}
-            </div>
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const handleSearchModeChange = (mode) => {
+    setSearchMode(mode);
+    setSearchTerm('');
+  };
+
+  const handleTagSelect = (selectedOption) => {
+    setSelectedTags(selectedOption);
+    const selectedValues = selectedOption.map(option => option.value);
+    setSearchTerm(selectedValues.join(', '));
+    setSearchMode('tags');
+  };
+
+  return (
+    <div>
+      <div className="search-bar-container">
+        {searchMode === 'users' ? (
+          <input
+            className="search-bar"
+            type="text" 
+            placeholder="Search Users..."
+            value={searchTerm}
+            onChange={handleSearchChange}
+          />
+        ) : (
+          <Select
+            className="search-bar"
+            isMulti
+            value={selectedTags}
+            options={tags.map(tag => ({ value: tag, label: tag }))}
+            onChange={handleTagSelect}
+            placeholder="Select tags..."
+          />
+        )}
+        <div className="search-mode-toggle">
+          <select
+            value={searchMode}
+            onChange={(e) => handleSearchModeChange(e.target.value)}
+          >
+            <option value="users">Search by user</option>
+            <option value="tags">Search by post</option>
+          </select>
         </div>
-    );
-}
+      </div>
+
+      <div className="userPosts-container">
+        <Posts searchTerm={searchTerm} searchMode={searchMode} />
+      </div>
+    </div>
+  );
+};
 
 export default Homepage;

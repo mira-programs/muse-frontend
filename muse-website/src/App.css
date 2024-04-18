@@ -134,6 +134,10 @@ section{
     color: var(--color-beige);  
 }
 
+.header{
+    top: 0;
+}
+
 /* .PostDetail-container{
         width: 50%;
         padding: 3rem;
