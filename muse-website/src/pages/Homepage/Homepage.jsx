@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Homepage.css';
 import Posts from '../../components/Posts/Posts';
 import Select from 'react-select';
+import { Link } from 'react-router-dom';
 
 const Homepage = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -65,6 +66,10 @@ const Homepage = () => {
             <option value="tags">Search by post</option>
           </select>
         </div>
+      </div>
+
+      <div>
+      <Link to = {'/chats'}> chats </Link>
       </div>
 
       <div className="userPosts-container">

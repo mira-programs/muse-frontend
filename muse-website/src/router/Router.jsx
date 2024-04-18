@@ -20,6 +20,7 @@ import Logout from '../pages/Logout'
 import Register from '../pages/Register/Register'
 import Profile from '../pages/Profile/Profile'
 import Messages from '../pages/DirectMessaging/DirectMessaging'
+import ChatList from '../pages/ChatList/ChatList'
 
 
 
@@ -41,7 +42,8 @@ export default function Router() {
             <Route path="/posts/:id" element={<PostDetail />} />
             <Route path="/register" element={<Register />} />
             <Route path="/profile/:id" element={<Profile/>} />
-            <Route path="/messages" element={<Messages />} />
+            <Route path="/chat/:userId" element={<Messages />} />
+            <Route path="/chats" element={<ChatList />} />
             <Route path="*" element={<ErrorPage />} />
          </Routes>
         <Footer />
