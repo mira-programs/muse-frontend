@@ -1,15 +1,15 @@
 /* body {
     font-family: Arial, sans-serif;
-  }
+  } */
   
-  .create-post-container {
+  /* .create-post-container {
     width: 80%;
     margin: 0 auto;
-    padding: 20px;
+    padding: 0;
     background: #f9f9f9;
-    border-radius: 8px;
+    border-radius: 10rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  } */
+  }  */
 
   body {
     display: flex;
@@ -60,7 +60,7 @@
     height: 150px;
   }
   
-  .btn {
+  .button {
     padding: 10px 20px;
     background-color: #86909b;
     color: white;
@@ -71,7 +71,7 @@
     margin-left: 45%;
   }
   
-  .btn:hover {
+  .button:hover {
     background-color: #004494;
   }
 

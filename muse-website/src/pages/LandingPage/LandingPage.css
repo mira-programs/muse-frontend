@@ -59,3 +59,12 @@
     margin-top: 0;
     color: #666; 
 }
+
+/*             <div>
+                <input 
+                    type="text" 
+                    value={selectedTags.join(', ')} 
+                    readOnly
+                />
+            </div>
+ */

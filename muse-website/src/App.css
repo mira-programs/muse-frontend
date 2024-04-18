@@ -134,191 +134,7 @@ section{
     color: var(--color-beige);  
 }
 
-
-/* Start Nav Bar*/
-/* nav{
-    background: var(--color-primary);
-    height: 6.5rem;
-    display: grid;
-    place-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    border-bottom: 4px solid var(--color-light);
-    z-index: 100;
-}
-
-.nav-container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-}
-
-/* .muse-logo-image{
-    width: 15rem;
-} */
-
-/* .nav-logo h3{
-    color: var(--color-beige);
-    font-size: 1.6rem;
-    font-weight: 500;
-} */
-
-/* .nav-logo {
-    display: flex; 
-    align-items: center; 
-  
-
-/* .moving-image{
-    width: 200px; 
-    height: auto; 
-    position: relative;
-    top: 50%; 
-    left: 50%; 
-} 
-
-.moving-image {
-    width: 230px; /* Set the width of the image 
-    height: auto; /* Maintain aspect ratio 
-    position: absolute;
-    top: 38%;
-    left: 50%;
-    transform: translate(-315%, -50%); /* Center the image 
-  }
-
-/* .nav-logo h3 span{
-    color: var(--color-light);
-} 
-
-.nav-menu{
-    display: flex;
-    align-items: center;
-    gap: 3rem;
-}
-
-.nav-menu li a{
-    color: #dac0a3;
-}
-
-.nav-menu li a:hover{
-    color: var(--color-light);
-    transition: var(--transition);
-}
-
-.nav-toggle-button{
-    background: transparent;
-    color: var(--color-beige);
-    display: none;
-}  */
-/* End Nav Bar  */
-
-
-/* Start Home Page*/
-/* Start Posts Component*/
-/* .muserPosts-container{
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    gap: 4rem;
-}
-
-.posts-container, .categoryPost-container{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 3rem;
-}
-
-.head-post-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    padding-top: 3rem;
-    align-items: center;
-    margin-bottom: -65rem;
-}
-
-.head-post-container .post-image{
-    height: fit-content;
-}
-
-.head-post-container h1{
-    margin-bottom: 1.7rem;
-    font-size: 2.4rem;
-    line-height: 1.4;
-    color: var(--color-gray-900);
-}
-
-.head-post-container p {
-    font-sizE: 17px;
-    line-height: 1.5;
-}
-
-.post{ 
-    background: var(--color-beige);
-    padding: 1rem;
-    border-radius: var(--border-radius-4);
-    border: 2px solid hsl(30, 76%, 88%);
-    padding-bottom: 2rem;
-    transition: var(--transition);
-    cursor: pointer;
-    box-shadow: none;
-}
-
-.post:hover{
-    box-shadow: 0 1.5rem 2rem rgba(0, 0, 0, 0.3); 
-
-}
-
-.post-image{
-    border-radius: var(--border-radius-3);
-    overflow: hidden;
-    height: 16rem;
-    overflow: hidden;
-}
-
-.post-image img{
-    height: 100%;
-}
-
-.post-content{
-    margin-top: 1.5rem;
-}
-
-.post-content h3{
-    margin: 1rem 0 0.6rem;
-}
-
-.post-footer{
-    display: flex;
-    align-items: flex-end;
-    margin-top: 2rem;
-    justify-content: space-between; 
-}
-
-.post-author{
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-}
-
-.post-author-image{
-    width: 2.8rem;
-    border-radius: 50%;
-    overflow: hidden;
-    aspect-ratio: 1/1;
-    border: 3px solid var(--color-light);
-}
-
-.page-title{
-    text-align: center;
-    margin: 4rem auto;
-} */
-/* End Posts Component  */
-/* End Home Page 
-
-/* Start Pot Detail*/
-.PostDetail-container{
+/* .PostDetail-container{
         width: 50%;
         padding: 3rem;
         background: var(--color-beige);
@@ -348,7 +164,7 @@ section{
 }
 /* End Post Detail */
 
-/* Start Sign Up Sign In*/
+/* Start Sign Up Sign In
 .wrapper{
     position: relative;
     top: 5rem;
@@ -424,12 +240,12 @@ input, select, textarea{
 }
 
 .form-container small a{
-    color: var(--color-primary);
-}
+    color: var(--color-primary); 
+} */
 /* End Sign Up Sign In */
 
 /* Start  Muser*/
-.muser-container{
+/* .muser-container{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 3rem;
@@ -464,7 +280,7 @@ input, select, textarea{
 }
 /*  End Muser  */
 
-/* Start Profile Area*/
+/* Start Profile Area
 .profile-container .form{
     width: 50%;
 }
@@ -537,11 +353,11 @@ input, select, textarea{
     padding: .1rem;
     border-radius: 50%;
     display: inline;
-}
+} */
 /* End  Profile  Area*/
 
 /* Start Dashboard*/
-.dashboard-container{
+/* .dashboard-container{
     display: flex;
     flex-direction: column;
     gap: .8rem;
@@ -580,7 +396,7 @@ input, select, textarea{
 
 .dashboard-posts-action .btn-V:hover{
     background: var(--color-gray-900);
-}
+} */
 /* End  Dashboard */
 
 /* Start Error Page*/
@@ -594,42 +410,3 @@ input, select, textarea{
     align-items: center;
 } 
 /* End Error Page  */
-
-/* Start Footer */
-/* footer{
-    background: var(--color-gray-900);
-    margin-top: 10.8rem;
-    padding-top: 5em;
-} */
-
-/* .footer-categories{
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 5rem;
-    margin-bottom: 4rem;
-    flex-wrap: wrap;
-    justify-self: center;
-}
-
-.footer-categories li a{
-    color: var(--color-beige);
-    background: var(--color-gray-700);
-    padding: .6rem 1.4rem;
-    border-radius: var(--border-radius-2);
-    transition: var(--transition);
-}
-
-.footer-categories li a:hover{
-    color: var(--color-gray-900);
-    background: var(--color-beige);
-} */
-
-/* .footer-copyright{
-    text-align: center;
-    padding: 1rem 0;
-    color: var(--color-beige);
-    border-top: 1px solid var(--color-light);
-    font-weight: 300;
-} 
- End Footer  */

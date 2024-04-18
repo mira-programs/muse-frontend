@@ -65,7 +65,7 @@ const CreatePost = () => {
         placeholder="Upload Attachment"
         onChange={handleInputChange}
       />
-      <button type="submit" className='btn'>Create Post</button>
+      <button type="submit" className='button'>Create Post</button>
     </form>
     </section>
   );
