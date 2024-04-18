@@ -43,30 +43,30 @@ const CreatePost = () => {
 
   return (
     <section className='create-post-container'>
-    <form className='form-group' onSubmit={handleSubmit}>
-      <input
-        type="text"
-        name="title"
-        placeholder="Title"
-        value={postData.title}
-        onChange={handleInputChange}
-        required
-      />
-      <textarea
-        name="content"
-        placeholder="Content"
-        value={postData.content}
-        onChange={handleInputChange}
-        required
-      />
-      <input
-        type="file"
-        name="image"
-        placeholder="Upload Attachment"
-        onChange={handleInputChange}
-      />
-      <button type="submit" className='button'>Create Post</button>
-    </form>
+      <form className='form-group' onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="title"
+          placeholder="Title"
+          value={postData.title}
+          onChange={handleInputChange}
+          required
+        />
+        <textarea
+          name="content"
+          placeholder="Content"
+          value={postData.content}
+          onChange={handleInputChange}
+          required
+        />
+        <input
+          type="file"
+          name="image"
+          placeholder="Upload Attachment"
+          onChange={handleInputChange}
+        />
+        <button type="submit" className='button'>Create Post</button>
+      </form>
     </section>
   );
 };
