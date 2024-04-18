@@ -3,6 +3,7 @@ import { CgSearch } from "react-icons/cg";
 import './Homepage.css';
 import Posts from '../../components/Posts/Posts';
 import Select from 'react-select';
+import { Link } from 'react-router-dom';
 
 const Homepage = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -81,6 +82,10 @@ const Homepage = () => {
           </select>
         </div>
         <button className="search-icon" onClick={handleSearchClick}><CgSearch /></button>
+      </div>
+
+      <div>
+      <Link to = {'/chats'}> chats </Link>
       </div>
 
       <div className="userPosts-container">
