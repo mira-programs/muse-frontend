@@ -17,7 +17,7 @@ function ChatList() {
             'Authorization': `Bearer ${token}`
           }
         });
-        setChats(response.data);
+        setChats(response.data.chatList); // Adjust according to the actual response structure
       } catch (error) {
         console.error('Error fetching chats:', error);
       }
@@ -29,10 +29,10 @@ function ChatList() {
   return (
     <div className="chat-list">
       {chats.map(chat => (
-        <Link key={chat._id} to={`/chat/${chat.sender._id}`}>
+        <Link key={chat.userId} to={`/chat/${chat.userId}`}>
           <div className="chat-preview">
-            <p>{chat.sender.username}: {chat.message}</p>
-            <small>{new Date(chat.timestamp).toLocaleString()}</small>
+            <p>{chat.username}</p>
+            <small>{chat.email}</small>
           </div>
         </Link>
       ))}
