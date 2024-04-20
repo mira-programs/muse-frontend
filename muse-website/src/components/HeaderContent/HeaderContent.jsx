@@ -1,6 +1,6 @@
 import Header from '../Header/Header';
 import NavBar from '../NavBar/NavBar';
-import './HeaderContent.css';
+import './HeaderContent.css'
 
 import { useLocation } from 'react-router-dom';
 

@@ -3,15 +3,20 @@
     padding: 0;
 }
 
-.hero-section {
-    position: relative;
-    z-index: 1;
+.landing-page {
+  height: 100vh;
+}
+
+.hero-container {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
 }
 
 .hero-background {
     height: 100%;
     width: 100%;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     z-index: -1;
@@ -35,6 +40,12 @@
 .section {
     position: relative;
     padding: 4rem 0; 
+    background-color: var(--color-beige); 
+    z-index: 1;
+}
+
+.section-no-background {
+    background-color: var(--color-beige); 
 }
     
 .grid {
