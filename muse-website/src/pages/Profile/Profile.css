@@ -116,3 +116,7 @@
 .add-experience-button {
   margin-bottom: 10px;
 }
+
+.input .summary {
+  width: 100%;
+}

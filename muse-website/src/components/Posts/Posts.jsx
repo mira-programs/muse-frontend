@@ -49,7 +49,7 @@ const Posts = () => {
             muserID={post.muserID}
             title={post.title}
             des={post.des}
-            postID={post.id}  
+            postID={post.id}
           />
         ))}
       </div>

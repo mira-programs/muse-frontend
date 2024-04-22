@@ -5,7 +5,7 @@ import './Profile.css';
 
 export default function Profile() {
   const [isEditing, setIsEditing] = useState(false);
-  const [profileData, setProfileData] = useState({
+  const initialProfileData = {
     profilePicture: <PiUserCircleDuotone />,
     firstName: '',
     lastName: '',
@@ -13,13 +13,9 @@ export default function Profile() {
     about: '',
     isOpenToCollaborate: false,
     experiences: []
-  });
-
-  const [editedProfileData, setEditedProfileData] = useState({ 
-    ...profileData,
-    experiences: profileData.experiences.map(experience => ({ ...experience })) // Ensure experiences is an array
-  });
-
+  };
+  const [profileData, setProfileData] = useState(initialProfileData);
+  const [editedProfileData, setEditedProfileData] = useState(profileData);
   const [newExperience, setNewExperience] = useState({ position: '', company: '', duration: '' });
 
   const handleEditClick = () => {
@@ -28,12 +24,12 @@ export default function Profile() {
 
   const handleCancelEdit = () => {
     setIsEditing(false);
-    setEditedProfileData({ ...profileData });
+    setEditedProfileData(profileData); 
   };
 
   const handleSaveEdit = () => {
     setIsEditing(false);
-    setProfileData({ ...editedProfileData });
+    setProfileData(editedProfileData); 
   };
 
   const handleChange = (e) => {
@@ -50,8 +46,8 @@ export default function Profile() {
     setEditedProfileData({
       ...editedProfileData,
       experiences: [...editedProfileData.experiences, newExperience],
-      newExperience: { position: '', company: '', duration: '' },
     });
+    setNewExperience({ position: '', company: '', duration: '' }); 
   };
 
   const handleChangeNewExperience = (e) => {
@@ -81,18 +77,24 @@ export default function Profile() {
         <div className="profile-info">
           <h1>
             {isEditing ? (
-              <input type="text" name="firstName" value={editedProfileData.firstName} onChange={handleChange} />
+              <div>
+                <input type="text" name="firstName" placeholder="First Name" value={editedProfileData.firstName} onChange={handleChange} />
+              </div>
             ) : (
               editedProfileData.firstName
             )} {isEditing ? (
-              <input type="text" name="lastName" value={editedProfileData.lastName} onChange={handleChange} />
+              <div>
+                <input type="text" name="lastName" placeholder="Last Name" value={editedProfileData.lastName} onChange={handleChange} />
+              </div>
             ) : (
               editedProfileData.lastName
             )}
           </h1>
           <h2>
             {isEditing ? (
-              <input type="text" name="location" value={editedProfileData.location} onChange={handleChange} />
+              <div>
+                <input type="text" name="location" placeholder="Location" value={editedProfileData.location} onChange={handleChange} />
+              </div>
             ) : (
               editedProfileData.location
             )}
@@ -122,41 +124,6 @@ export default function Profile() {
                   value={experience.duration}
                   onChange={(e) => handleChangeExperience(e, index, 'duration')}
                 />
-                {isEditing && (
-                  <div className="new-experience-form">
-                    <div className="add-experience-button">
-                      {isEditing && (
-                        <button onClick={handleAddExperience}>
-                          Add Experience
-                        </button>
-                      )}
-                    </div>
-                    <input
-                      type="text"
-                      name="position"
-                      value={newExperience.position}
-                      onChange={handleChangeNewExperience}
-                      placeholder="Position"
-                    />
-                    <label htmlFor="position">Position</label>
-                    <input
-                      type="text"
-                      name="company"
-                      value={newExperience.company}
-                      onChange={handleChangeNewExperience}
-                      placeholder="Company"
-                    />
-                    <label htmlFor="company">Company</label>
-                    <input
-                      type="text"
-                      name="duration"
-                      value={newExperience.duration}
-                      onChange={handleChangeNewExperience}
-                      placeholder="Duration"
-                    />
-                    <label htmlFor="duration">Duration</label>
-                  </div>
-                )}
               </div>
             ))
           ) : (
@@ -166,9 +133,47 @@ export default function Profile() {
               </div>
             ))
           )}
+          {isEditing && (
+            <div className="new-experience-form">
+              <div className="add-experience-button">
+                {isEditing && (
+                  <button onClick={handleAddExperience}>
+                    Add Experience
+                  </button>
+                )}
+              </div>
+              <input
+                type="text"
+                name="position"
+                value={newExperience.position}
+                onChange={handleChangeNewExperience}
+                placeholder="Position"
+              />
+              <input
+                type="text"
+                name="company"
+                value={newExperience.company}
+                onChange={handleChangeNewExperience}
+                placeholder="Company"
+              />
+              <input
+                type="text"
+                name="duration"
+                value={newExperience.duration}
+                onChange={handleChangeNewExperience}
+                placeholder="Duration"
+              />
+            </div>
+          )}
           <p className="section-title">Summary</p>
           {isEditing ? (
-            <textarea name="about" value={editedProfileData.about} onChange={handleChange} />
+            <input className="summary" 
+              type="text"
+              name="about" 
+              value={editedProfileData.about} 
+              onChange={handleChange} 
+              placeholder="About" 
+            />
           ) : (
             <p>{editedProfileData.about}</p>
           )}
@@ -176,7 +181,7 @@ export default function Profile() {
             <label>
               <input type="checkbox" checked={editedProfileData.isOpenToCollaborate} onChange={toggleIsOpenToCollaborate} />
               Open to collaborate
-            </label>
+              </label>
           </div>
         </div>
       </div>

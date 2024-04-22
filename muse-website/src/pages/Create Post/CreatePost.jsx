@@ -6,8 +6,9 @@ import './CreatePost.css';
 const CreatePost = () => {
   const [postData, setPostData] = useState({
     title: '',
-    content: ''
-    // Include other fields as needed
+    content: '',
+    image: '',
+    email: ''
   });
   const navigate = useNavigate();
 
@@ -18,11 +19,9 @@ const CreatePost = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Assuming the JWT token is stored in localStorage
     const token = localStorage.getItem('token');
     if (!token) {
       console.error("No token found, user isn't logged in");
-      // Handle not logged-in scenario
       return;
     }
 
@@ -39,6 +38,8 @@ const CreatePost = () => {
       console.error('Error creating post:', error.response || error);
       // Handle errors, maybe set an error message in state and display it
     }
+    
+    //fetch email from local storage!!
   };
 
   return (
