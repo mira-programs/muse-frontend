@@ -29,7 +29,7 @@ export default function Login() {
       const data = await response.json(); // Parse the JSON response
 
       if (response.ok) {
-        localStorage.setItem('userEmail', userData.email); // Store the email in local storage
+        localStorage.setItem('userId', data.userId); // Store the userId in local storage
         console.log("Login successful", data);
         navigate('/home'); // Navigate to the homepage or wherever you need
       } else {

@@ -24,8 +24,8 @@ export default function CreatePost() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const email = localStorage.getItem('userEmail'); // Fetch the email from local storage
-    if (!email) {
+    const userId = localStorage.getItem('userId'); // Fetch the email from local storage
+    if (!userId) {
       console.error("No email found, user isn't logged in");
       return;
     }
@@ -33,7 +33,7 @@ export default function CreatePost() {
     const formData = new FormData();
     formData.append('title', title);
     formData.append('content', content);
-    formData.append('author', email);
+    formData.append('author', userId);
     if (image) {
       formData.append('imageUrls', image); // The field 'imageUrls' should match the name expected by your backend
     }
@@ -53,7 +53,7 @@ export default function CreatePost() {
       console.log('Post Created:', response.data);
       navigate('/home'); // Navigate after successful creation
     } catch (error) {
-      console.error('Error:', error.response ? error.response.data : error.message);
+      console.error('Error.');
     }
   };
 
