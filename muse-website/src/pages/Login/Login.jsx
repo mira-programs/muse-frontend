@@ -29,11 +29,12 @@ export default function Login() {
       const data = await response.json(); // Parse the JSON response
 
       if (response.ok) {
+        localStorage.setItem('userEmail', userData.email); // Store the email in local storage
         console.log("Login successful", data);
         navigate('/home'); // Navigate to the homepage or wherever you need
       } else {
-        console.error("Login failed", data);
-        // You could update state here to show an error message to the user
+        console.error('Login failed', data.message || 'Invalid email or password. Please try again.'); // Enhanced error message
+        alert('Login failed: ' + (data.message || 'Invalid email or password. Please try again.')); // Optionally display an alert to the user
       }
     } catch (error) {
       console.error("Error during login:", error);

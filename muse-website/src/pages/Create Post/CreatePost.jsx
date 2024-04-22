@@ -7,8 +7,7 @@ const CreatePost = () => {
   const [postData, setPostData] = useState({
     title: '',
     content: '',
-    image: '',
-    email: ''
+    image: ''
   });
   const navigate = useNavigate();
 
@@ -19,27 +18,30 @@ const CreatePost = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const token = localStorage.getItem('token');
-    if (!token) {
-      console.error("No token found, user isn't logged in");
+    const author = localStorage.getItem('userEmail'); // Fetch the email from local storage
+    if (!author) {
+      console.error("No email found, user isn't logged in");
       return;
     }
 
     try {
-      const response = await axios.post('http://localhost:8080/posts', postData, {
+      const formData = new FormData();
+      formData.append('title', postData.title);
+      formData.append('content', postData.content);
+      formData.append('author', author); // Use 'author' as the key
+      if (postData.image) {
+        formData.append('image', postData.image);
+      }
+      const response = await axios.post('http://localhost:8080/posts', {...postData, email}, { // Include the email in the post data
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`  // Include the JWT token in the Authorization header
+          'Content-Type': 'application/json'
         }
       });
       console.log('Post created successfully', response.data);
-      navigate('/'); // Navigate to the homepage or posts page as needed
+      navigate('/home'); // Redirect or update state after successful post creation
     } catch (error) {
-      console.error('Error creating post:', error.response || error);
-      // Handle errors, maybe set an error message in state and display it
+      console.error('Failed to create post');
     }
-    
-    //fetch email from local storage!!
   };
 
   return (
