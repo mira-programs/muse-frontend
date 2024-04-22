@@ -22,6 +22,8 @@ import Profile from '../pages/Profile/Profile'
 import Messages from '../pages/DirectMessaging/DirectMessaging'
 import ChatList from '../pages/ChatList/ChatList'
 import AdminPage from '../pages/AdminPage/AdminPage'
+import AdminReports from '../pages/AdminReports/AdminReports'
+import AdminWarnings from '../pages/AdminWarnings/AdminWarnings'
 
 
 export default function Router() {
@@ -45,6 +47,9 @@ export default function Router() {
             <Route path="/chat/:userId" element={<Messages />} />
             <Route path="/chats" element={<ChatList />} />
             <Route path="/admin" element={<AdminPage />} />
+            <Route path="/adminreports" element={<AdminReports />} />
+            <Route path="/adminwarnings" element={<AdminWarnings />} />
+
             <Route path="*" element={<ErrorPage />} />
          </Routes>
         <Footer />
