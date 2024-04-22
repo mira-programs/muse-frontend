@@ -21,7 +21,7 @@ import Register from '../pages/Register/Register'
 import Profile from '../pages/Profile/Profile'
 import Messages from '../pages/DirectMessaging/DirectMessaging'
 import ChatList from '../pages/ChatList/ChatList'
-
+import AdminPage from '../pages/AdminPage/AdminPage'
 
 
 export default function Router() {
@@ -44,6 +44,7 @@ export default function Router() {
             <Route path="/profile/:id" element={<Profile/>} />
             <Route path="/chat/:userId" element={<Messages />} />
             <Route path="/chats" element={<ChatList />} />
+            <Route path="/admin" element={<AdminPage />} />
             <Route path="*" element={<ErrorPage />} />
          </Routes>
         <Footer />
