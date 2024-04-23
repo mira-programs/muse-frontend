@@ -6,13 +6,13 @@ import './CreatePost.css';
 export default function CreatePost() {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
-  const [tags, setTags] = useState([]); 
+  const [tags, setTags] = useState([]);
   const [image, setImage] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
     setTags(['Science Fiction', 'Fantasy', 'Gaming', 'Anime', 'Cartoon', 'Fanfiction',
-             'Horror', 'Biography', 'Thriller', 'Minimalism', 'Expressionsim', 
+             'Horror', 'Biography', 'Thriller', 'Minimalism', 'Expressionism', 
              'Impressionism', 'Pop Art', 'Renaissance', 'Abstract', 'Modern', 
              'Romance', 'Adventure', 'History', 'Technology', 'Futurism']);
   }, []);
@@ -30,16 +30,15 @@ export default function CreatePost() {
     const selectedValues = selectedOption.map(option => option.value);
     setSearchTerm(selectedValues.join(', '));
     setSearchMode('tags');
-  };
+  }
 
   const handleImageChange = (e) => {
     setImage(e.target.files[0]);
   };
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const userId = localStorage.getItem('userId'); // Fetch the email from local storage
+    const userId = localStorage.getItem('userId');
     if (!userId) {
       console.error("No email found, user isn't logged in");
       return;
@@ -50,32 +49,26 @@ export default function CreatePost() {
     formData.append('content', content);
     formData.append('author', userId);
     if (image) {
-      formData.append('imageUrls', image); // The field 'imageUrls' should match the name expected by your backend
+      formData.append('image', image);
     }
-    formData.append('tags', JSON.stringify(tags));
-  
+    formData.append('tags', JSON.stringify(selectedTags));
+
     try {
       const response = await axios.post('http://localhost:8080/posts', formData);
-      console.log('test1'); // to remove
-
-      if (response.status === 201) { // Check for the status code 201 for "Created"
-        console.log('Post Created:', response.data);
-        // Reset form and clear the state
+      if (response.status === 201) {
         setTitle('');
         setContent('');
-        setTags([]);
-        setImage(null); // Reset the image state
+        setSelectedTags([]);
+        setImage(null);
+        navigate('/home');
       } else {
         console.error('Failed to create post:', response.status);
       }
-      console.log('Post Created:', response.data);
-      navigate('/home'); // Navigate after successful creation
     } catch (error) {
-      console.error('Error.');
+      console.error('Error:', error);
     }
   };
 
-  
   return (
     <section className='create-post-container'>
       <form className='form-group' onSubmit={handleSubmit}>
@@ -87,7 +80,8 @@ export default function CreatePost() {
           onChange={handleTitleChange}
           required
         />
-        <textarea className="createpost-textarea"
+        <textarea
+          className="createpost-textarea"
           name="content"
           placeholder="Content"
           value={content}
@@ -95,20 +89,24 @@ export default function CreatePost() {
           required
         />
         <select
-          multiple
+          isMulti
           name="tags"
           value={tags}
-          options={tags.map(tag => ({ value: tag, label: tag }))}
           onChange={handleTagSelect}
-        />
+        >
+          {tags.map(tag => (
+            <option key={tag} value={tag}>
+              {tag}
+            </option>
+          ))}
+        </select>
         <input
           type="file"
           name="image"
-          placeholder="Upload Attachment"
           onChange={handleImageChange}
         />
         <button type="submit" className='button'>Create Post</button>
       </form>
     </section>
   );
-};
+}
