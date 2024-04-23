@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './CreatePost.css';
@@ -6,8 +6,17 @@ import './CreatePost.css';
 export default function CreatePost() {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
+  const [tags, setTags] = useState([]); 
   const [image, setImage] = useState(null);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    setTags(['Science Fiction', 'Fantasy', 'Gaming', 'Anime', 'Cartoon', 'Fanfiction',
+             'Horror', 'Biography', 'Thriller', 'Minimalism', 'Expressionsim', 
+             'Impressionism', 'Pop Art', 'Renaissance', 'Abstract', 'Modern', 
+             'Romance', 'Adventure', 'History', 'Technology', 'Futurism']);
+  }, []);
+
 
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
@@ -15,6 +24,13 @@ export default function CreatePost() {
 
   const handleContentChange = (e) => {
     setContent(e.target.value);
+  };
+
+  const handleTagSelect = (selectedOption) => {
+    setSelectedTags(selectedOption);
+    const selectedValues = selectedOption.map(option => option.value);
+    setSearchTerm(selectedValues.join(', '));
+    setSearchMode('tags');
   };
 
   const handleImageChange = (e) => {
@@ -37,6 +53,7 @@ export default function CreatePost() {
     if (image) {
       formData.append('imageUrls', image); // The field 'imageUrls' should match the name expected by your backend
     }
+    formData.append('tags', JSON.stringify(tags));
   
     try {
       const response = await axios.post('http://localhost:8080/posts', formData);
@@ -47,6 +64,7 @@ export default function CreatePost() {
         // Reset form and clear the state
         setTitle('');
         setContent('');
+        setTags([]);
         setImage(null); // Reset the image state
       } else {
         console.error('Failed to create post:', response.status);
@@ -76,6 +94,13 @@ export default function CreatePost() {
           value={content}
           onChange={handleContentChange}
           required
+        />
+        <select
+          multiple
+          name="tags"
+          value={tags}
+          options={tags.map(tag => ({ value: tag, label: tag }))}
+          onChange={handleTagSelect}
         />
         <input
           type="file"

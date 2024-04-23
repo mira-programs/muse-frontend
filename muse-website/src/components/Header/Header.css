@@ -39,12 +39,13 @@
 }
 
 .nav-menu li a:hover {
-    color: var(--color-light);
+    color: brown;
+    /* color: var(--color-light); */
     transition: var(--transition);
     background: var(--color-light);
     transition: var(--transition);
     border: none;
-    border-radius: var(--border-radius-1);
+    border-radius: var(--border-radius-2);
 }
 
 .nav-toggle-button {

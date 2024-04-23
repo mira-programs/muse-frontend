@@ -9,7 +9,7 @@ import Footer from "../components/Footer/Footer"
 import LandingPage from '../pages/LandingPage/LandingPage'
 import Homepage from '../pages/Homepage/Homepage'
 import PostDetail from '../pages/PostDetail'
-import Muser from '../pages/Muser'
+import Muser from '../pages/Muser/Muser'
 import Post from '../pages/MuserPosts'
 import CreatePost from '../pages/Create Post/CreatePost'
 import DashBoard from '../pages/DashBoard'
@@ -46,7 +46,6 @@ export default function Router() {
             <Route path="/chats" element={<ChatList />} />
             <Route path="/admin" element={<AdminPage />} />
             <Route path="/adminreports" element={<AdminReports />} />
-
             <Route path="*" element={<ErrorPage />} />
          </Routes>
         <Footer />

@@ -6,9 +6,10 @@ import './Profile.css';
 export default function Profile() {
   const [isEditing, setIsEditing] = useState(false);
   const initialProfileData = {
-    profilePicture: <PiUserCircleDuotone />,
+    profilePicture:'',
     firstName: '',
     lastName: '',
+    username: '',  
     location: '',
     about: '',
     isOpenToCollaborate: false,
@@ -58,6 +59,19 @@ export default function Profile() {
     setEditedProfileData({ ...editedProfileData, isOpenToCollaborate: !editedProfileData.isOpenToCollaborate });
   };
 
+  const handleProfilePictureChange = (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+  
+    reader.onloadend = () => {
+      setEditedProfileData({ ...editedProfileData, profilePicture: reader.result });
+    };
+  
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  };
+
   return (
     <div className="profile">
       <header className="profile-header">
@@ -72,7 +86,23 @@ export default function Profile() {
       </header>
       <div className="profile-container">
         <div className="profile-avatar">
-          {profileData.profilePicture}
+          <label htmlFor="profile-picture-input" className="profile-picture-label">
+            {!editedProfileData.profilePicture ? (
+              <PiUserCircleDuotone className="profile-picture" />
+            ) : (
+              <img src={editedProfileData.profilePicture} alt="" className="profile-picture" />
+            )}
+            {isEditing && <div className="edit-icon"><FaEdit /></div>}
+          </label>
+          {isEditing && (
+            <input
+              id="profile-picture-input"
+              type="file"
+              onChange={handleProfilePictureChange}
+              accept="image/*"
+              style={{ display: 'none' }}
+            />
+          )}
         </div>
         <div className="profile-info">
           <h1>
@@ -178,10 +208,18 @@ export default function Profile() {
             <p>{editedProfileData.about}</p>
           )}
           <div className="collaboration-toggle">
-            <label>
-              <input type="checkbox" checked={editedProfileData.isOpenToCollaborate} onChange={toggleIsOpenToCollaborate} />
-              Open to collaborate
+            {isEditing ? (
+              <label>
+                <input 
+                  type="checkbox" 
+                  checked={editedProfileData.isOpenToCollaborate} 
+                  onChange={toggleIsOpenToCollaborate} 
+                />
+                Open to collaborate
               </label>
+            ) : (
+              editedProfileData.isOpenToCollaborate && <p>Open to collaborate</p>
+            )}
           </div>
         </div>
       </div>

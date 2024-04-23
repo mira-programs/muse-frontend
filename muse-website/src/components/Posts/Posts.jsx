@@ -27,17 +27,14 @@ const Posts = () => {
     fetchPosts();
   }, []);
 
-  // Display loading state
   if (loading) {
     return <div>Loading...</div>;
   }
 
-  // Display error state
   if (error) {
     return <div>Error: {error}</div>;
   }
 
-  // Display fetched posts
   return (
     <section className="posts">
       <div className="container posts-container">
