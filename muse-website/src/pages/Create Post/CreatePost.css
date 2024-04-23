@@ -1,19 +1,4 @@
-/* body {
-    font-family: Arial, sans-serif;
-} */
-
-/* .create-post-container {
-    width: 80%;
-    margin: 0 auto;
-    padding: 0;
-    background: #f9f9f9;
-    border-radius: 10rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-} */
-
 body {
-  /* display: flex;
-  flex-direction: column; */
   justify-content: center;
   min-height: 100vh; 
   margin: 0;
@@ -62,14 +47,25 @@ body {
   height: 150px;
 }
 
+.form-group select {
+  padding-left: 0.5rem;
+  color: #666;
+  margin-left: 0;
+  width: 100%;
+  height: auto;
+  background-color: #fff; 
+  cursor: pointer; 
+}
+
 .button {
+  width: 17%;
   padding: 0.5rem 1rem;
   background-color: #86909b;
   color: white;
   border: none;
   border-radius: 0.5rem;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 1.05rem;
   margin-left: calc(50% - 3rem); 
 }
 
