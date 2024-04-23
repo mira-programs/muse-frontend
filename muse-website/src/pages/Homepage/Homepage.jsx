@@ -9,6 +9,7 @@ const Homepage = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchMode, setSearchMode] = useState('users');
   const [selectedTags, setSelectedTags] = useState([]);
+  const [searchInitiated, setSearchInitiated] = useState(false);
   const [tags, setTags] = useState([]);
 
   useEffect(() => {
@@ -18,12 +19,6 @@ const Homepage = () => {
              'Impressionism', 'Pop Art', 'Renaissance', 'Abstract', 'Modern', 
              'Romance', 'Adventure', 'History', 'Technology', 'Futurism']);
   }, []);
-
-  const handleAddTag = (tag) => {
-    if (!selectedTags.includes(tag)) {
-        setSelectedTags([...selectedTags, tag]);
-    }
-  }
   
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
@@ -41,13 +36,25 @@ const Homepage = () => {
     setSearchMode('tags');
   };
 
-  const handleSearchClick = () => {
-    if (searchMode === 'users') {
-      // Perform user search
-      console.log('User search:', searchTerm);
-    } else if (searchMode === 'tags') {
-      // Perform post search
-      console.log('Post search:', searchTerm);
+  const handleSearchClick = async () => {
+    if (!searchTerm) {
+      alert("Please enter a search term.");
+      return;
+    }
+  
+    try {
+      let payload = {};
+      if (searchMode === 'users') {
+        payload = { username: searchTerm };
+      } else if (searchMode === 'tags') {
+        payload = { tags: searchTerm.split(',').map(tag => tag.trim()) };
+      }
+  
+      const response = await axios.post(`/search`, payload);
+      setSearchResults(response.data); 
+    } catch (error) {
+      console.error('Search failed:', error);
+      setError('Failed to fetch search results');
     }
   };
 

@@ -3,7 +3,7 @@ import axios from 'axios';
 import PostItem from '../PostItem/PostItem';
 
 
-const Posts = () => {
+const Posts = ({ searchMode, searchTerm }) => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -11,7 +11,7 @@ const Posts = () => {
 
   useEffect(() => {
     fetchPosts();
-  }, []);
+  }, [searchTerm, searchMode]);
  
     const fetchPosts = async () => {
       try {
@@ -35,9 +35,6 @@ const Posts = () => {
         setLoading(false);
       }
     };
-
-
-
 
   if (loading) {
     return <div>Loading...</div>;

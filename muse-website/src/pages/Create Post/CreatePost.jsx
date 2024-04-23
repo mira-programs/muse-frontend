@@ -17,7 +17,6 @@ export default function CreatePost() {
              'Romance', 'Adventure', 'History', 'Technology', 'Futurism']);
   }, []);
 
-
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
   };

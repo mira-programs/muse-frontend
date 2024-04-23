@@ -17,7 +17,7 @@ export default function PostItem({Image, muserId, tag, title, des, postID}) {
           </Link>
           <p>{shorDes}</p>
           <div className="post-footer">
-            <PostAuthor muserID/>
+            <PostAuthor muserID={muserId}/>
             <Link to={`/posts/categories/${tag}`} className="btn btn-category">{tag}</Link>
           </div>
         </div>
