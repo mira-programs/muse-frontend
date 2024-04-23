@@ -1,43 +1,49 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import PostItem from './PostItem'; // Adjust import path as necessary
+import PostItem from '../PostItem/PostItem';
 
-const Posts = ({ searchMode, searchTerm, searchInitiated }) => {
+
+const Posts = ({ searchMode, searchTerm }) => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+
   useEffect(() => {
     fetchPosts();
-  }, [searchTerm, searchMode, searchInitiated]);
-
+  }, [searchTerm, searchMode]);
+ 
     const fetchPosts = async () => {
-      setLoading(true);
-      setError(null);
       try {
-        let url = 'http://localhost:8080/posts'; // Base URL for fetching all posts
+        const response = await axios.get('http://localhost:8080/posts');
+        let data = response.data;
 
-        if (searchInitiated) {  
-          url += '/search'; 
-          const payload = {
-            ...(searchMode === 'users' ? { username: searchTerm } : { tags: searchTerm.split(', ').map(tag => tag.trim()) })
-          };
-          const response = await axios.post(url, payload);
-          setPosts(response.data);
+
+        if (!Array.isArray(data)) {
+          data = [data];
+        }
+
+
+        if (data.length > 0) {
+          setPosts(data);
         } else {
-          const response = await axios.get(url);
-          setPosts(response.data); 
+          setError('No posts found');
         }
       } catch (error) {
-        console.error('Error fetching posts:', error.message);
-        setError('Failed to fetch posts');
+        setError('Error fetching posts');
       } finally {
         setLoading(false);
       }
     };
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
 
 
   return (
