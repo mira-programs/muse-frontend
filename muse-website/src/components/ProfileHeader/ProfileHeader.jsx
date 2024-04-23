@@ -13,6 +13,7 @@ export default function ProfileHeader() {
 
     const handleLogout = () => {
         localStorage.removeItem('userToken'); 
+        localStorage.removeItem('userId');
         navigate('/login');
     };
 
