@@ -1,6 +1,7 @@
 import './Header.css'
 import { Link } from 'react-router-dom'
 import { CiCirclePlus } from "react-icons/ci";
+import { CgProfile } from "react-icons/cg";
 
 // import react icons................
 import { FaBars } from "react-icons/fa";
@@ -13,7 +14,7 @@ export default function Header() {
             <Link className="nav-logo" to={'/home'}>MUSE</Link>
 
             <ul className="nav-menu">
-                <li><Link to={'/profile/id'}>Username</Link></li>
+                <li><Link to={'/profile/id'}><CgProfile /></Link></li>
                 <li><Link to={'/create'}><CiCirclePlus /></Link></li>
                 {/* <li><Link to={'/muser'}>Musers</Link></li> */}
                 {/* <li><Link to={'/logout'}>Logout</Link></li> */}
