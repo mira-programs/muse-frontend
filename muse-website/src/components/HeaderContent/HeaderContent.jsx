@@ -1,5 +1,6 @@
 import Header from '../Header/Header';
 import NavBar from '../NavBar/NavBar';
+import ProfileHeader from '../ProfileHeader/ProfileHeader'
 import './HeaderContent.css'
 
 import { useLocation } from 'react-router-dom';
@@ -22,6 +23,7 @@ function HeaderContent() {
     const isLandingPage = location.pathname === '/'; 
     const isLogin = location.pathname === '/login'; 
     const isRegister = location.pathname === '/register'; 
+    const isProfile = location.pathname === '/profile/id';
 
     let HeaderContent;
     if (isLandingPage) {
@@ -29,6 +31,9 @@ function HeaderContent() {
     }
     else if (isLogin || isRegister) {
       HeaderContent = null;
+    }
+    else if (isProfile) {
+      HeaderContent = (<ProfileHeader />);
     }
     else {
         HeaderContent = (<Header/>);

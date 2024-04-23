@@ -88,7 +88,7 @@ export default function Profile() {
         <div className="profile-avatar">
           <label htmlFor="profile-picture-input" className="profile-picture-label">
             {!editedProfileData.profilePicture ? (
-              <PiUserCircleDuotone className="profile-picture" />
+              <PiUserCircleDuotone className="profile-icon" size="200"/>
             ) : (
               <img src={editedProfileData.profilePicture} alt="" className="profile-picture" />
             )}

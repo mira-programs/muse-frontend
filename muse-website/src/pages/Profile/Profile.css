@@ -47,8 +47,9 @@
   object-fit: cover;
 }
 
-.profile-picture {
+.profile-icon {
   display: block;
+  /* size: 10rem; */
   width: 6.25rem;
   height: 6.25rem;
   object-fit: cover;
