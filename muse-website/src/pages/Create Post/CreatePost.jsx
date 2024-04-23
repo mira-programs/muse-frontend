@@ -40,6 +40,7 @@ export default function CreatePost() {
   
     try {
       const response = await axios.post('http://localhost:8080/posts', formData);
+      console.log('test1'); // to remove
 
       if (response.status === 201) { // Check for the status code 201 for "Created"
         console.log('Post Created:', response.data);
@@ -80,7 +81,6 @@ export default function CreatePost() {
           type="file"
           name="image"
           placeholder="Upload Attachment"
-          // value={image}
           onChange={handleImageChange}
         />
         <button type="submit" className='button'>Create Post</button>
