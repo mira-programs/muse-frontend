@@ -11,16 +11,11 @@ const Posts = () => {
     const fetchPosts = async () => {
       try {
         const response = await axios.get('/api/posts');
-        let data = response.data;
-
-        if (!Array.isArray(data)) {
-          data = [data]; 
-        }
-
-        if (data.length > 0) {
-          setPosts(data);
+        // Check if the response contains data and it's an array
+        if (response.data && Array.isArray(response.data)) {
+          setPosts(response.data);
         } else {
-          setError('No posts found');
+          setError('Invalid response format');
         }
       } catch (error) {
         setError('Error fetching posts');
