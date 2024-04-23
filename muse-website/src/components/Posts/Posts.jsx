@@ -8,9 +8,12 @@ const Posts = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    fetchPosts();
+  }, []);
+  
     const fetchPosts = async () => {
       try {
-        const response = await axios.get('/api/posts');
+        const response = await axios.get('http://localhost:8080/posts');
         let data = response.data;
 
         if (!Array.isArray(data)) {
@@ -29,8 +32,6 @@ const Posts = () => {
       }
     };
 
-    fetchPosts();
-  }, []);
 
   if (loading) {
     return <div>Loading...</div>;
