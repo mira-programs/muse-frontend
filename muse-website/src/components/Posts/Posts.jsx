@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import PostItem from './PostItem'; // Adjust import path as necessary
+import PostItem from '../PostItem/PostItem'; 
 
 const Posts = ({ searchMode, searchTerm, searchInitiated }) => {
   const [posts, setPosts] = useState([]);
