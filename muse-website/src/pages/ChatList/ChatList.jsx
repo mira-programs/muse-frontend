@@ -5,39 +5,47 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-function ChatList() {
-  const [chats, setChats] = useState([]);
+const Messages = () => {
+  const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    const fetchChats = async () => {
+    fetchMessages();
+  }, []);
+    const fetchMessages = async () => {
+      const userId = localStorage.getItem('userId');
+      if (!userId) {
+        console.log('No user ID found in local storage.');
+        return;
+      }
+
       try {
-        const token = localStorage.getItem('token'); // Assuming you store the token in localStorage after login
-        const response = await axios.get('http://localhost:8080/chats', {
+        const response = await axios.get('/chats', {
           headers: {
-            'Authorization': `Bearer ${token}`
-          }
+            'Content-Type': 'application/json'
+          },
+          data: { userId }
         });
-        setChats(response.data.chatList); // Adjust according to the actual response structure
+        setMessages(response.data);
       } catch (error) {
-        console.error('Error fetching chats:', error);
+        console.error('Failed to fetch messages:', error);
       }
     };
 
-    fetchChats();
-  }, []);
+
 
   return (
-    <div className="chat-list">
-      {chats.map(chat => (
-        <Link key={chat.userId} to={`/chat/${chat.userId}`}>
-          <div className="chat-preview">
-            <p>{chat.username}</p>
-            <small>{chat.email}</small>
-          </div>
-        </Link>
-      ))}
+    <div>
+      <h1>Received Messages</h1>
+      <ul>
+        {messages.map((message, index) => (
+          <li key={index}>
+            <p><strong>From:</strong> {message.sender.username} <strong>At:</strong> {new Date(message.timestamp).toLocaleString()}</p>
+            <p>{message.message}</p>
+          </li>
+        ))}
+      </ul>
     </div>
   );
-}
+};
 
-export default ChatList;
+export default Messages;
