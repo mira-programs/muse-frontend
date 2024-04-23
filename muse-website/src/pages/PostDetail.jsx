@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom'
 //Components
 import PostAuthor from '../components/PostAuthor/PostAuthor'
 // PostDetail image
-import postDetailImage from '../assets/brPainting1.jpeg'
+
+//ADD COMMENTS OF POSTS HERE
+
 
 export default function PostDetail() {
   return (
@@ -19,7 +21,7 @@ export default function PostDetail() {
         </div>
         <h1>Beautiful Scenery</h1>
         <div className="postdetail-image">
-          <img src={postDetailImage} alt="" />
+          <img src="" alt="" />
         </div>
         <div className="postdetail-para">
         <p>
