@@ -9,10 +9,8 @@ import axios from 'axios';
 const Homepage = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchMode, setSearchMode] = useState('users');
-  const [selectedTags, setSelectedTags] = useState([]);
   const [tags, setTags] = useState([]);
-  const [error, setError] = useState(null);
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchInitiated, setSearchInitiated] = useState(false);
 
   useEffect(() => {
     // Fetch the tag list from backend or define statically if not dynamic
@@ -31,33 +29,10 @@ const Homepage = () => {
     setSearchTerm('');
   };
 
-  const handleTagSelect = (selectedOption) => {
-    setSelectedTags(selectedOption);
-    const selectedValues = selectedOption.map(option => option.value);
-    setSearchTerm(selectedValues.join(', '));
-    setSearchMode('tags');
+  const handleTagSelect = (e) => {
+    const selectedOptions = Array.from(e.target.selectedOptions, option => option.value);
+    setSelectedTags(selectedOptions);
   };
-
-  const handleSearchClick = async () => {
-    if (!searchTerm) {
-      alert("Please enter a search term.");
-      return;
-    }
-  
-    try {
-      const searchType = searchMode === 'users' ? 'username' : 'tags';
-      const response = await axios.get(`http://localhost:8080/search`, {
-        params: {
-          type: searchType,
-          query: searchTerm
-        }
-      });
-      setSearchResults(response.data); 
-    } catch (error) {
-      console.error('Search failed:', error);
-      setError('Failed to fetch search results');
-    }
-};
 
   return (
     <div>
@@ -89,7 +64,7 @@ const Homepage = () => {
             <option value="tags">Post</option>
           </select>
         </div>
-        <button className="search-icon" onClick={handleSearchClick}><CgSearch /></button>
+        <button className="search-icon" onClick={() => setSearchInitiated(true)}><CgSearch /></button>
       </div>
 
       <div>
@@ -97,7 +72,7 @@ const Homepage = () => {
       </div>
 
       <div className="userPosts-container">
-        <Posts searchTerm={searchTerm} searchMode={searchMode} />
+        <Posts searchTerm={searchTerm} searchMode={searchMode} searchInitiated={searchInitiated} setSearchInitiated={setSearchInitiated}/>
       </div>
     </div>
   );
