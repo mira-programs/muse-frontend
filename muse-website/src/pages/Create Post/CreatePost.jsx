@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Select from 'react-select';
 import { useNavigate } from 'react-router-dom';
 import './CreatePost.css';
 
@@ -7,14 +8,35 @@ export default function CreatePost() {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [tags, setTags] = useState([]);
+  const [selectedTags, setSelectedTags] = useState([]);
   const [image, setImage] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
-    setTags(['Science Fiction', 'Fantasy', 'Gaming', 'Anime', 'Cartoon', 'Fanfiction',
-             'Horror', 'Biography', 'Thriller', 'Minimalism', 'Expressionism', 
-             'Impressionism', 'Pop Art', 'Renaissance', 'Abstract', 'Modern', 
-             'Romance', 'Adventure', 'History', 'Technology', 'Futurism']);
+    setTags([
+      { value: 'science_fiction', label: 'Science Fiction' },
+      { value: 'fantasy', label: 'Fantasy' },
+      { value: 'gaming', label: 'Gaming' },
+      { value: 'anime', label: 'Anime' },
+      { value: 'anime', label: 'Anime' },
+      { value: 'cartoon', label: 'Cartoon' },
+      { value: 'fanfiction', label: 'Fanfiction' },
+      { value: 'horror', label: 'Horror' },
+      { value: 'biography', label: 'Biography' },
+      { value: 'thriller', label: 'Thriller' },
+      { value: 'minimalist', label: 'Minimalist' },
+      { value: 'expressionism', label: 'Expressionism' },
+      { value: 'impressionism', label: 'Impressionism' },
+      { value: 'pop_art', label: 'Pop Art' },
+      { value: 'renaissance', label: 'Renaissance' },
+      { value: 'abstarct', label: 'Abstract' },
+      { value: 'modern', label: 'Modern' },
+      { value: 'romance', label: 'Romance' },
+      { value: 'adventure', label: 'Adventure' },
+      { value: 'history', label: 'History' },
+      { value: 'technology', label: 'Technology' },
+      { value: 'futurism', label: 'Futurism' },
+    ]);
   }, []);
 
   const handleTitleChange = (e) => {
@@ -25,12 +47,9 @@ export default function CreatePost() {
     setContent(e.target.value);
   };
 
-  const handleTagSelect = (selectedOption) => {
-    setSelectedTags(selectedOption);
-    const selectedValues = selectedOption.map(option => option.value);
-    setSearchTerm(selectedValues.join(', '));
-    setSearchMode('tags');
-  }
+  const handleTagSelect = (selectedOptions) => {
+    setSelectedTags(selectedOptions || []); // Handle null (when no option is selected)
+  };
 
   const handleImageChange = (e) => {
     setImage(e.target.files[0]);
@@ -51,7 +70,8 @@ export default function CreatePost() {
     if (image) {
       formData.append('image', image);
     }
-    formData.append('tags', JSON.stringify(selectedTags));
+    // Convert selectedTags from { value, label } to just value and append
+    selectedTags.forEach(tag => formData.append('tags', tag.value));
 
     try {
       const response = await axios.post('http://localhost:8080/posts', formData);
@@ -88,18 +108,14 @@ export default function CreatePost() {
           onChange={handleContentChange}
           required
         />
-        <select
+        <Select
           isMulti
-          name="tags"
-          value={tags}
+          options={tags}
+          value={selectedTags}
           onChange={handleTagSelect}
-        >
-          {tags.map(tag => (
-            <option key={tag} value={tag}>
-              {tag}
-            </option>
-          ))}
-        </select>
+          className="basic-multi-select"
+          classNamePrefix="select"
+        />
         <input
           type="file"
           name="image"

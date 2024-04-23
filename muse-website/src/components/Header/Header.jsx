@@ -14,9 +14,8 @@ export default function Header() {
             <Link className="nav-logo" to={'/home'}>MUSE</Link>
 
             <ul className="nav-menu">
-                <li><Link to={'/profile/id'}><CgProfile /></Link></li>
-                <li><Link to={'/create'}><CiCirclePlus /></Link></li>
-                {/* <li><Link to={'/muser'}>Musers</Link></li> */}
+                <li className="icon"><Link to={'/profile/id'}><CgProfile /></Link></li>
+                <li className="icon"><Link to={'/create'}><CiCirclePlus /></Link></li>
                 {/* <li><Link to={'/logout'}>Logout</Link></li> */}
             </ul>
 
