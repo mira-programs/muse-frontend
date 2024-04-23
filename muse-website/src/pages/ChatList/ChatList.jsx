@@ -1,37 +1,33 @@
-// INCOMPLETE
-
 import './ChatList.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 
-const Messages = () => {
+const ChatList = () => {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
     fetchMessages();
   }, []);
-    const fetchMessages = async () => {
-      const userId = localStorage.getItem('userId');
-      if (!userId) {
-        console.log('No user ID found in local storage.');
-        return;
-      }
 
-      try {
-        const response = await axios.get('/chats', {
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          data: { userId }
-        });
-        setMessages(response.data);
-      } catch (error) {
-        console.error('Failed to fetch messages:', error);
-      }
-    };
+  const fetchMessages = async () => {
+    const userId = localStorage.getItem('userId');
+    if (!userId) {
+      console.log('No user ID found in local storage.');
+      return;
+    }
 
-
+    try {
+      const response = await axios.get('/chats', {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }
+      });
+      // Check if response.data is an array, if not, initialize messages as an empty array
+      setMessages(Array.isArray(response.data) ? response.data : []);
+    } catch (error) {
+      console.error('Failed to fetch messages:', error);
+    }
+  };
 
   return (
     <div>
@@ -39,7 +35,7 @@ const Messages = () => {
       <ul>
         {messages.map((message, index) => (
           <li key={index}>
-            <p><strong>From:</strong> {message.sender.username} <strong>At:</strong> {new Date(message.timestamp).toLocaleString()}</p>
+            <p><strong>From:</strong> {message.sender.username}</p>
             <p>{message.message}</p>
           </li>
         ))}
@@ -48,4 +44,4 @@ const Messages = () => {
   );
 };
 
-export default Messages;
+export default ChatList;
