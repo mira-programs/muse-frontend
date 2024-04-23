@@ -4,13 +4,15 @@ import './Homepage.css';
 import Posts from '../../components/Posts/Posts';
 import Select from 'react-select';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const Homepage = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchMode, setSearchMode] = useState('users');
   const [selectedTags, setSelectedTags] = useState([]);
-  const [searchInitiated, setSearchInitiated] = useState(false);
   const [tags, setTags] = useState([]);
+  const [error, setError] = useState(null);
+  const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
     // Fetch the tag list from backend or define statically if not dynamic
@@ -43,20 +45,19 @@ const Homepage = () => {
     }
   
     try {
-      let payload = {};
-      if (searchMode === 'users') {
-        payload = { username: searchTerm };
-      } else if (searchMode === 'tags') {
-        payload = { tags: searchTerm.split(',').map(tag => tag.trim()) };
-      }
-  
-      const response = await axios.post(`/search`, payload);
+      const searchType = searchMode === 'users' ? 'username' : 'tags';
+      const response = await axios.get(`http://localhost:8080/search`, {
+        params: {
+          type: searchType,
+          query: searchTerm
+        }
+      });
       setSearchResults(response.data); 
     } catch (error) {
       console.error('Search failed:', error);
       setError('Failed to fetch search results');
     }
-  };
+};
 
   return (
     <div>
