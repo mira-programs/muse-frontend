@@ -27,7 +27,7 @@ export default function CreatePost() {
   };
 
   const handleTagSelect = (selectedOption) => {
-    setSelectedTags(selectedOption);
+    setTags(selectedOption);
     const selectedValues = selectedOption.map(option => option.value);
     setSearchTerm(selectedValues.join(', '));
     setSearchMode('tags');
