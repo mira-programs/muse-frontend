@@ -22,6 +22,12 @@ const Posts = () => {
 
         if (data.length > 0) {
           setPosts(data);
+=======
+        const response = await axios.get('/api/posts');
+        // Check if the response contains data and it's an array
+        if (response.data && Array.isArray(response.data)) {
+          setPosts(response.data);
+>>>>>>> 36f065570696933742b5a0deb36d3d1b9b3dddac
         } else {
           setError('No posts found');
         }
