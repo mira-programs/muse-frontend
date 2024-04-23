@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import Select from 'react-select';
 import './CreatePost.css';
 
 export default function CreatePost() {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [tags, setTags] = useState([]);
-  const [selectedTags, setSelectedTags] = useState([]);
   const [image, setImage] = useState(null);
   const navigate = useNavigate();
 
@@ -90,11 +88,10 @@ export default function CreatePost() {
           onChange={handleContentChange}
           required
         />
-        <Select
+        <select
           isMulti
           name="tags"
-          value={selectedTags}
-          options={tags.map(tag => ({ value: tag, label: tag }))}
+          value={tags}
           onChange={handleTagSelect}
         >
           {tags.map(tag => (
@@ -102,7 +99,7 @@ export default function CreatePost() {
               {tag}
             </option>
           ))}
-        </Select>
+        </select>
         <input
           type="file"
           name="image"
