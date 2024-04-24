@@ -14,28 +14,27 @@ export default function CreatePost() {
 
   useEffect(() => {
     setTags([
-      { value: 'science_fiction', label: 'Science Fiction' },
-      { value: 'fantasy', label: 'Fantasy' },
-      { value: 'gaming', label: 'Gaming' },
-      { value: 'anime', label: 'Anime' },
-      { value: 'anime', label: 'Anime' },
-      { value: 'cartoon', label: 'Cartoon' },
-      { value: 'fanfiction', label: 'Fanfiction' },
-      { value: 'horror', label: 'Horror' },
-      { value: 'biography', label: 'Biography' },
-      { value: 'thriller', label: 'Thriller' },
-      { value: 'minimalist', label: 'Minimalist' },
-      { value: 'expressionism', label: 'Expressionism' },
-      { value: 'impressionism', label: 'Impressionism' },
-      { value: 'pop_art', label: 'Pop Art' },
-      { value: 'renaissance', label: 'Renaissance' },
-      { value: 'abstarct', label: 'Abstract' },
-      { value: 'modern', label: 'Modern' },
-      { value: 'romance', label: 'Romance' },
-      { value: 'adventure', label: 'Adventure' },
-      { value: 'history', label: 'History' },
-      { value: 'technology', label: 'Technology' },
-      { value: 'futurism', label: 'Futurism' },
+      { value: 'Science Fiction', label: 'Science Fiction' },
+      { value: 'Fantasy', label: 'Fantasy' },
+      { value: 'Gaming', label: 'Gaming' },
+      { value: 'Anime', label: 'Anime' },
+      { value: 'Cartoon', label: 'Cartoon' },
+      { value: 'Fanfiction', label: 'Fanfiction' },
+      { value: 'Horror', label: 'Horror' },
+      { value: 'Biography', label: 'Biography' },
+      { value: 'Thriller', label: 'Thriller' },
+      { value: 'Minimalist', label: 'Minimalist' },
+      { value: 'Expressionism', label: 'Expressionism' },
+      { value: 'Impressionism', label: 'Impressionism' },
+      { value: 'Pop Art', label: 'Pop Art' },
+      { value: 'Renaissance', label: 'Renaissance' },
+      { value: 'Abstarct', label: 'Abstract' },
+      { value: 'Modern', label: 'Modern' },
+      { value: 'Romance', label: 'Romance' },
+      { value: 'Adventure', label: 'Adventure' },
+      { value: 'History', label: 'History' },
+      { value: 'Technology', label: 'Technology' },
+      { value: 'Futurism', label: 'Futurism' },
     ]);
   }, []);
 
@@ -68,10 +67,12 @@ export default function CreatePost() {
     formData.append('content', content);
     formData.append('author', userId);
     if (image) {
-      formData.append('image', image);
+      formData.append('imageUrls', image);
     }
+    const tagValues = selectedTags.map(tag => tag.value);
+    formData.append('tags', JSON.stringify(tagValues));
     // Convert selectedTags from { value, label } to just value and append
-    selectedTags.forEach(tag => formData.append('tags', tag.value));
+    // selectedTags.forEach(tag => formData.append('tags', tag.value));
 
     try {
       const response = await axios.post('http://localhost:8080/posts', formData);
