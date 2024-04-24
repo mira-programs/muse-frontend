@@ -4,12 +4,25 @@ const AdminReports = () => {
   const [reports, setReports] = useState([]);
 
   useEffect(() => {
-    fetchReports();
+    // Check if admin is authenticated
+    const userId = localStorage.getItem('userId');
+    if (!userId) {
+      console.error("Unauthorized user access ");
+      return;
+    }
+    
+    // Fetch reports only if admin is authenticated
+    fetchReports(userId);
   }, []);
 
-  const fetchReports = async () => {
+  const fetchReports = async (userId) => {
     try {
-      const response = await fetch('http://localhost:8080/report'); // Replace with your backend endpoint
+      // Include admin ID in the request headers
+      const response = await fetch('http://localhost:8080/report', {
+        headers: {
+          'userId': userId
+        }
+      });
       const data = await response.json();
       setReports(data);
     } catch (error) {

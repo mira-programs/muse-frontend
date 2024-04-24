@@ -19,6 +19,20 @@ export default function Profile() {
   const [editedProfileData, setEditedProfileData] = useState(profileData);
   const [newExperience, setNewExperience] = useState({ position: '', company: '', duration: '' });
 
+  useEffect(() => {
+    const fetchProfileData = async () => {
+      try {
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/profile`);
+        setProfileData(response.data);
+        setEditedProfileData(response.data); // Initialize edit state
+      } catch (error) {
+        console.error('Failed to fetch profile data:', error);
+      }
+    };
+
+    fetchProfileData();
+  }, []);
+
   const handleEditClick = () => {
     setIsEditing(true);
   };
