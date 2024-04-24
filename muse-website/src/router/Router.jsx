@@ -16,7 +16,6 @@ import DashBoard from '../pages/DashBoard'
 import DeletePosts from '../pages/DeletePosts'
 import ErrorPage from '../pages/ErrorPage'
 import Login from '../pages/Login/Login'
-import Logout from '../components/Logout/Logout'
 import Register from '../pages/Register/Register'
 import Profile from '../pages/Profile/Profile'
 import Messages from '../pages/DirectMessaging/DirectMessaging'
@@ -38,7 +37,6 @@ export default function Router() {
             <Route path="/myposts/:id" element={<DashBoard />} />
             <Route path="/posts/:id/delete" element={<DeletePosts />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/logout" element={<Logout />} />
             <Route path="/posts/:id" element={<PostDetail />} />
             <Route path="/register" element={<Register />} />
             <Route path="/profile/:id" element={<Profile/>} />

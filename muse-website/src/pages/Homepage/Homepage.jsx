@@ -92,10 +92,6 @@ const Homepage = () => {
         <button className="search-icon" onClick={handleSearchClick}><CgSearch /></button>
       </div>
 
-      <div>
-      <Link to = {'/chats'}> chats </Link>
-      </div>
-
       <div className="userPosts-container">
         <Posts searchTerm={searchTerm} searchMode={searchMode} />
       </div>
