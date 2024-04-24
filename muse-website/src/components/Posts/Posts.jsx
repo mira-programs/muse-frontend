@@ -18,7 +18,7 @@ const Posts = ({ searchMode, searchTerm, searchInitiated }) => {
         let url = 'http://localhost:8080/posts'; // Base URL for fetching all posts
 
         if (searchInitiated) {  
-          url += '/search'; 
+          url = '/search'; 
           const payload = {
             ...(searchMode === 'users' ? { username: searchTerm } : { tags: searchTerm.split(', ').map(tag => tag.trim()) })
           };
@@ -26,7 +26,7 @@ const Posts = ({ searchMode, searchTerm, searchInitiated }) => {
           setPosts(response.data);
         } else {
           const response = await axios.get(url);
-          setPosts(response.data); 
+          setPosts(response.data);
         }
       } catch (error) {
         console.error('Error fetching posts:', error.message);
