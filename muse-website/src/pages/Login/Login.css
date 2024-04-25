@@ -1,0 +1,42 @@
+.wrapper-login {
+    position: relative;
+    top: 50%;
+    left: 50%;      
+    transform: translate(-50%, -50%);
+    width: 600px;
+    max-width: 100%;
+    padding: 40px;
+    background: #f3e9de;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.login-form {
+    width: 100%; /* Set the width to the full width of the parent */
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-container {
+    width: 100%; /* Set the width to the full width of the parent */
+    padding: 0; /* Adjust padding if needed */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Adjust the width and margin of inputs to be responsive and centered */
+input, select, textarea {
+    width: calc(100% - 60px); /* Calculate width, considering padding */
+    margin: 0; /* Reset any margin */
+    padding: .7rem; /* Consistent padding */
+    border-radius: var(--border-radius-1);
+}
+
+/* Further styling can be adjusted as per your design requirements */

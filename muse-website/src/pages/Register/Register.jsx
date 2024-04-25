@@ -36,7 +36,7 @@ const Register = () => {
 
     return (
         <section className="register">
-            <div className="wrapper-register">
+            <div className="wrapper wrapper-register">
                 <div className="container register-container form-container">
                     <h2>Register</h2>
                     <form className="form register-form" onSubmit={handleSubmit}>
