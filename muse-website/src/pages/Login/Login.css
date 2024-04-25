@@ -1,9 +1,5 @@
-:root {
-    --border-radius: 1rem; /* Define a base border radius */
-}
-
 .login {
-    background-image: url('../../assets/loginbg.jpg');
+    background-image: url('../../assets/loginbg2.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
