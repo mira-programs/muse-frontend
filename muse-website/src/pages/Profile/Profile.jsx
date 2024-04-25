@@ -16,6 +16,7 @@ export default function Profile() {
     isOpenToCollaborate: false,
     experiences: []
   };
+
   const [profileData, setProfileData] = useState(initialProfileData);
   const [editedProfileData, setEditedProfileData] = useState(profileData);
   const [newExperience, setNewExperience] = useState({ position: '', company: '', duration: '' });
@@ -23,7 +24,8 @@ export default function Profile() {
   useEffect(() => {
     const fetchProfileData = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}/profile`); //process is not used in frontend, not available in browser environments
+        // get profile data
+        const response = await axios.get(`http://localhost:8080/profile`);
         setProfileData(response.data);
         setEditedProfileData(response.data);
       } catch (error) {

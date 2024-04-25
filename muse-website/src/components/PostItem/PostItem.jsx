@@ -2,14 +2,17 @@ import './PostItem.css';
 import { Link } from 'react-router-dom';
 import PostAuthor from '../PostAuthor/PostAuthor';
 
-export default function PostItem({ Image, muserId, tags, title, des, postID }) {
+export default function PostItem({ postID, Image, tags, muserID, title, des, profileID, authorName, profilePicture }) {
     const shortTitle = title.length > 40 ? title.substr(0, 30) + '...' : title;
     const shortDes = des.length > 145 ? des.substr(0, 145) + '...' : des;
+    const src = `data:image/jpg;base64,${Image}`;
+
+
 
     return (
         <article className="post">
             <div className="post-image">
-                <img src={Image} alt={title} />
+                <img src={src} alt={title} />
             </div>
             <div className="post-content">
                 <Link to={`posts/${postID}`}>
@@ -17,7 +20,7 @@ export default function PostItem({ Image, muserId, tags, title, des, postID }) {
                 </Link>
                 <p>{shortDes}</p>
                 <div className="post-footer">
-                    <PostAuthor muserID={muserId} />
+                    <PostAuthor muserID={muserID} />
                     <div className="post-tags">
                         {tags && tags.length > 0 && tags.map((tag, index) => (
                             <span key={index} className="tag">{typeof tag === 'string' ? tag : tag.name}</span>

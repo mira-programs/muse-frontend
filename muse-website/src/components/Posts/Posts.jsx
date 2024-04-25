@@ -18,11 +18,11 @@ const Posts = ({ searchMode, searchTerm, searchInitiated }) => {
         let url = 'http://localhost:8080/posts';
 
         if (searchInitiated) {  
-          url = '/search'; 
+          url = 'http://localhost:8080/search'; 
           const payload = {
-            ...(searchMode === 'users' ? { username: searchTerm } : { tags: searchTerm.split(', ').map(tag => tag.trim()) })
+            ...(searchMode === 'username' ? { username: searchTerm } : { tags: searchTerm.split(', ').map(tag => tag.trim()) })
           };
-          const response = await axios.post(url, payload);
+          const response = await axios.post(url, search);
           setPosts(response.data);
         } else {
           const response = await axios.get(url);
@@ -45,13 +45,15 @@ const Posts = ({ searchMode, searchTerm, searchInitiated }) => {
       <div className="container posts-container">
         {posts.map(post => (
           <PostItem
-            key={post.id}
+            key={post.postID}
             Image={post.Image}
             tags={post.tags}
             muserID={post.muserID}
             title={post.title}
             des={post.des}
-            postID={post.id}
+            profileID={post.profileID}
+            authorName={post.authorName}
+            profilePicture={post.profilePicture}
           />
         ))}
       </div>
