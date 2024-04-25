@@ -11,6 +11,7 @@ const Register = () => {
         username: '',
         email: '',
         password: '',
+        profile: '',
     });
 
     // Handle form input changes
