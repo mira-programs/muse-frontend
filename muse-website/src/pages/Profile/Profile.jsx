@@ -24,15 +24,20 @@ export default function Profile() {
   useEffect(() => {
     const fetchProfileData = async () => {
       try {
-        // get profile data
-        const response = await axios.get(`http://localhost:8080/profile`);
+        const userId = localStorage.getItem('userId'); // Ensure 'userId' is stored in local storage
+        if (!userId) {
+          console.error('No user ID found in local storage.');
+          return;
+        }
+  
+        const response = await axios.get(`http://localhost:8080/profile/${userId}`);
         setProfileData(response.data);
         setEditedProfileData(response.data);
       } catch (error) {
         console.error('Failed to fetch profile data:', error);
       }
     };
-
+  
     fetchProfileData();
   }, []);
 
@@ -45,10 +50,39 @@ export default function Profile() {
     setEditedProfileData(profileData); 
   };
 
-  const handleSaveEdit = () => {
-    setIsEditing(false);
-    setProfileData(editedProfileData); 
-  };
+  const handleSaveEdit = async () => {
+    const formData = new FormData();
+    formData.append('userId', localStorage.getItem('userId'));
+    formData.append('firstName', editedProfileData.firstName);
+    formData.append('lastName', editedProfileData.lastName);
+    formData.append('location', editedProfileData.location);
+    formData.append('about', editedProfileData.about);
+    formData.append('isOpenToCollaborate', editedProfileData.isOpenToCollaborate);
+    formData.append('experiences', JSON.stringify(editedProfileData.experiences));
+
+    if (editedProfileData.profilePicture) {
+      formData.append('profilePicture', editedProfileData.profilePicture);
+    }
+
+    try {
+      const response = await axios.post('http://localhost:8080/profile', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+      
+
+    if (response.status === 200 || response.status === 201) {
+      console.log('Profile updated successfully:', response.data);
+      setProfileData(response.data);
+      setIsEditing(false);
+    } else {
+      console.error('Failed to update profile:', response.status);
+    }
+  } catch (error) {
+    console.error('Error updating profile:', error);
+  }
+};
 
   const handleChange = (e) => {
     setEditedProfileData({ ...editedProfileData, [e.target.name]: e.target.value });

@@ -28,7 +28,7 @@ export default function CreatePost() {
       { value: 'Impressionism', label: 'Impressionism' },
       { value: 'Pop Art', label: 'Pop Art' },
       { value: 'Renaissance', label: 'Renaissance' },
-      { value: 'Abstarct', label: 'Abstract' },
+      { value: 'Abstract', label: 'Abstract' },
       { value: 'Modern', label: 'Modern' },
       { value: 'Romance', label: 'Romance' },
       { value: 'Adventure', label: 'Adventure' },
