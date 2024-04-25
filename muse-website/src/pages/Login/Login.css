@@ -33,10 +33,11 @@
 
 /* Adjust the width and margin of inputs to be responsive and centered */
 input, select, textarea {
-    width: calc(100% - 60px); /* Calculate width, considering padding */
-    margin: 0; /* Reset any margin */
-    padding: .7rem; /* Consistent padding */
+    background: #eadbcb;
+    width: 100%;
+    padding: .7rem 3rem;
     border-radius: var(--border-radius-1);
+    resize: none;
 }
 
 /* Further styling can be adjusted as per your design requirements */
