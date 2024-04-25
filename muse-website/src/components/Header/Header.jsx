@@ -21,28 +21,28 @@ export default function Header() {
   return (  
     <nav id="header">
         <div className="container nav-container">
-              {!isLoginOrRegister && (
+          {!isLoginOrRegister && (
+            <>
+              {isProfile ? (
                 <>
-                  {isProfile ? (
-                    <>
-                      <Link className="nav-logo" to={'/home'}>MUSE</Link>
-                        <ul className="nav-menu">
-                          <li className="icon"><Link to={'/chats'}><PiEnvelopeThin /></Link></li>
-                          <li className="icon"><Link to={'/create'}><CiCirclePlus /></Link></li>
-                          <li onClick={handleLogout} className="icon"><IoLogOutOutline /></li>
-                        </ul>
-                    </>
-                  ) : (
-                    <>
-                      <Link className="nav-logo" to={'/home'}>MUSE</Link>
-                        <ul className="nav-menu">
-                          <li className="icon"><Link to={'/profile/id'}><PiUserCircleThin /></Link></li>
-                          <li className="icon"><Link to={'/create'}><CiCirclePlus /></Link></li>
-                        </ul>
-                    </>
-                  )}
+                  <Link className="nav-logo" to={'/home'}>MUSE</Link>
+                    <ul className="nav-menu">
+                      <li className="icon"><Link to={'/chats'}><PiEnvelopeThin /></Link></li>
+                      <li className="icon"><Link to={'/create'}><CiCirclePlus /></Link></li>
+                      <li onClick={handleLogout} className="icon"><IoLogOutOutline /></li>
+                    </ul>
+                </>
+              ) : (
+                <>
+                  <Link className="nav-logo" to={'/home'}>MUSE</Link>
+                    <ul className="nav-menu">
+                      <li className="icon"><Link to={'/profile/id'}><PiUserCircleThin /></Link></li>
+                      <li className="icon"><Link to={'/create'}><CiCirclePlus /></Link></li>
+                    </ul>
                 </>
               )}
+            </>
+          )}
         </div>
     </nav>
   );
