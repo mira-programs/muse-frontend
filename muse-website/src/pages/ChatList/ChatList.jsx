@@ -1,47 +1,53 @@
+// ChatList.jsx
+
 import './ChatList.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+//import { Link } from 'react-router-dom';
 
-const ChatList = () => {
-  const [messages, setMessages] = useState([]);
+function ChatList() {
+  const [chats, setChats] = useState([]);
 
   useEffect(() => {
-    fetchMessages();
+    const fetchChats = async () => {
+      try {
+        const userId = localStorage.getItem('userId');
+        const response = await axios.get('http://localhost:8080/chats', {
+          params: { userId }
+        });
+        console.log(response.data);  // Log the entire response data
+        setChats(response.data); // Make sure chatList is an array
+      } catch (error) {
+        console.error('Error fetching chats:', error);
+      }
+    };
+
+    fetchChats();
   }, []);
 
-  const fetchMessages = async () => {
-    const userId = localStorage.getItem('userId');
-    if (!userId) {
-      console.log('No user ID found in local storage.');
-      return;
-    }
+return (
+  <div className="chat-list">
+    {chats && chats.length > 0 ? (
+      chats.map(chat => (
+        <div key={chat._id} className="chat-preview">
+          <div className="username">{chat.sender.username}</div>
+          {/* Use a div for the message to apply padding and background */}
+          <div className="message">{chat.message}</div> 
+          <div className="timestamp">
+            {chat.createdAt && !isNaN(new Date(chat.createdAt).getTime()) 
+              ? new Date(chat.createdAt).toLocaleString() 
+              : ''}
+          </div>
+        </div>
+      ))
+    ) : (
+      <div>No chats available or loading...</div>
+    )}
+  </div>
+);
 
-    try {
-      const response = await axios.get('/chats', {
-        headers: {
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
-        }
-      });
-      // Check if response.data is an array, if not, initialize messages as an empty array
-      setMessages(Array.isArray(response.data) ? response.data : []);
-    } catch (error) {
-      console.error('Failed to fetch messages:', error);
-    }
-  };
 
-  return (
-    <div>
-      <h1>Received Messages</h1>
-      <ul>
-        {messages.map((message, index) => (
-          <li key={index}>
-            <p><strong>From:</strong> {message.sender.username}</p>
-            <p>{message.message}</p>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
+}
 
 export default ChatList;
+
