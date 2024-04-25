@@ -1,4 +1,4 @@
-.post {
+/* .post {
     background: var(--color-beige);
     width: 30rem;
     height: 30rem;
@@ -46,4 +46,51 @@
     background: #dac0a3;
     padding: 0.5rem 1rem;
     border-radius: var(--border-radius-1);
+} */
+
+/* PostItem.css */
+.post {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+}
+
+.post-image img {
+    width: 100%;
+    height: auto;
+}
+
+.post-content {
+    padding: 10px;
+}
+
+.post-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.tag {
+    background-color: #f2f2f2;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    padding: 5px 10px;
+    font-size: 12px;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.tag:hover {
+    background-color: #ddd; /* Optional: hover effect */
 }

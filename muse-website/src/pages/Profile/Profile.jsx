@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FaEdit, FaCheckCircle } from "react-icons/fa";
 import { PiUserCircleDuotone } from "react-icons/pi";
+import axios from 'axios';
 import './Profile.css';
 
 export default function Profile() {
@@ -22,9 +23,9 @@ export default function Profile() {
   useEffect(() => {
     const fetchProfileData = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}/profile`);
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/profile`); //process is not used in frontend, not available in browser environments
         setProfileData(response.data);
-        setEditedProfileData(response.data); // Initialize edit state
+        setEditedProfileData(response.data);
       } catch (error) {
         console.error('Failed to fetch profile data:', error);
       }

@@ -46,7 +46,7 @@ export default function Router() {
             <Route path="/adminreports" element={<AdminReports />} />
             <Route path="*" element={<ErrorPage />} />
          </Routes>
-        <Footer />
+        {/* <Footer /> */}
     </BrowserRouter>
     </>
   )

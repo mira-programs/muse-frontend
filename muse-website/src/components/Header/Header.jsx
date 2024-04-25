@@ -1,29 +1,49 @@
-import './Header.css'
-import { Link } from 'react-router-dom'
+import './Header.css';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { CiCirclePlus } from "react-icons/ci";
 import { PiUserCircleThin } from "react-icons/pi";
-
-// import react icons................
-import { FaBars } from "react-icons/fa";
-import { AiOutlineClose } from "react-icons/ai";
+import { PiEnvelopeThin } from "react-icons/pi";
+import { IoLogOutOutline } from "react-icons/io5";
 
 export default function Header() {
-  return (
+  const location = useLocation();
+  const navigate = useNavigate();
+  
+  const isProfile = location.pathname.startsWith('/profile/');
+  const isLoginOrRegister = location.pathname === '/login' || location.pathname === '/register';
+
+  const handleLogout = () => {
+      localStorage.removeItem('userToken'); 
+      localStorage.removeItem('userId');
+      navigate('/');
+  };
+
+  return (  
     <nav id="header">
         <div className="container nav-container">
-            <Link className="nav-logo" to={'/home'}>MUSE</Link>
-
-            <ul className="nav-menu">
-                <li className="icon"><Link to={'/profile/id'}><PiUserCircleThin /></Link></li>
-                <li className="icon"><Link to={'/create'}><CiCirclePlus /></Link></li>
-                {/* <li><Link to={'/logout'}>Logout</Link></li> */}
-            </ul>
-
-            <button className="nav-toggle-button">
-            <FaBars />
-            <AiOutlineClose />
-            </button>
+              {!isLoginOrRegister && (
+                <>
+                  {isProfile ? (
+                    <>
+                      <Link className="nav-logo" to={'/home'}>MUSE</Link>
+                        <ul className="nav-menu">
+                          <li className="icon"><Link to={'/chats'}><PiEnvelopeThin /></Link></li>
+                          <li className="icon"><Link to={'/create'}><CiCirclePlus /></Link></li>
+                          <li onClick={handleLogout} className="icon"><IoLogOutOutline /></li>
+                        </ul>
+                    </>
+                  ) : (
+                    <>
+                      <Link className="nav-logo" to={'/home'}>MUSE</Link>
+                        <ul className="nav-menu">
+                          <li className="icon"><Link to={'/profile/id'}><PiUserCircleThin /></Link></li>
+                          <li className="icon"><Link to={'/create'}><CiCirclePlus /></Link></li>
+                        </ul>
+                    </>
+                  )}
+                </>
+              )}
         </div>
     </nav>
-  )
+  );
 }

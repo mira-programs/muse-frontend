@@ -15,7 +15,7 @@ const Posts = ({ searchMode, searchTerm, searchInitiated }) => {
       setLoading(true);
       setError(null);
       try {
-        let url = 'http://localhost:8080/posts'; // Base URL for fetching all posts
+        let url = 'http://localhost:8080/posts';
 
         if (searchInitiated) {  
           url = '/search'; 
@@ -47,7 +47,7 @@ const Posts = ({ searchMode, searchTerm, searchInitiated }) => {
           <PostItem
             key={post.id}
             Image={post.Image}
-            category={post.category}
+            tags={post.tags}
             muserID={post.muserID}
             title={post.title}
             des={post.des}
