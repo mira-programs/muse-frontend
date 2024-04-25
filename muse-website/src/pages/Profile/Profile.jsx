@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FaEdit, FaCheckCircle } from "react-icons/fa";
 import { PiUserCircleDuotone } from "react-icons/pi";
 import './Profile.css';
