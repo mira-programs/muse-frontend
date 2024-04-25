@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { PiUserCircleDuotone } from "react-icons/pi";
+import { MdOutlineReportProblem } from "react-icons/md";
 import './Muser.css';
 
 export default function Muser() {
@@ -20,6 +21,8 @@ export default function Muser() {
       console.error('Error fetching user data:', error);
     }
   };
+
+  //add reports button to header
 
   return (
     <section className="muser">

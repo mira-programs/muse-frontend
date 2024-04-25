@@ -18,10 +18,10 @@
           <p>{heroData.text1}</p>
           <p>{heroData.text2}</p>
         </div>
-        <div className="hero-explore">
+        {/* <div className="hero-explore">
           <p>Explore</p>
           <IoArrowForwardCircleOutline Link to={'/Explore'}/>
-        </div>
+        </div> */}
         <div className="hero-dot-play">
         <ul className="hero-dots">
             <li onClick={()=>setHeroCount(0)} className={heroCount===0?"hero-dot orange":"hero-dot"}></li>

@@ -1,8 +1,10 @@
 .post {
     background: var(--color-beige);
+    width: 30rem;
+    height: 30rem;
     padding: 1rem;
     border-radius: var(--border-radius-4);
-    border: 2px solid hsl(30, 76%, 88%);
+    border: 0.125rem solid hsl(30, 76%, 88%);
     padding-bottom: 2rem;
     transition: var(--transition);
     cursor: pointer;
@@ -20,9 +22,9 @@
 }
 
 .post-image img {
-    width: 100%; /* Adjust to fill the container */
+    width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensure image covers the container */
+    object-fit: cover; 
 }
 
 .post-content {
