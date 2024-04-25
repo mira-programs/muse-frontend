@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const AdminReports = () => {
   const [reports, setReports] = useState([]);
@@ -6,10 +7,6 @@ const AdminReports = () => {
   useEffect(() => {
     // Check if admin is authenticated
     const userId = localStorage.getItem('userId');
-    if (!userId) {
-      console.error("Unauthorized user access ");
-      return;
-    }
     
     // Fetch reports only if admin is authenticated
     fetchReports(userId);
@@ -18,13 +15,14 @@ const AdminReports = () => {
   const fetchReports = async (userId) => {
     try {
       // Include admin ID in the request headers
-      const response = await fetch('http://localhost:8080/report', {
-        headers: {
+      const response = await axios.get('http://localhost:8080/report', {
+        params: {
           'userId': userId
         }
       });
-      const data = await response.json();
-      setReports(data);
+      // const data = await response.json();
+      console.log(response.data);
+      setReports(response.data);
     } catch (error) {
       console.error('Error fetching reports:', error);
     }
