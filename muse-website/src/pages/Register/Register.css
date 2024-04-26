@@ -1,16 +1,17 @@
-.register{
-    background-image: url('../../assets/loginbg2.jpg');
+.register {
+    background-image: url('../../assets/loginbg1.jpg');
     background-size: cover;
-    background-position: center center; /* Center the background image both horizontally and vertically */
+    background-position: center center;
     background-repeat: no-repeat;
     height: 100vh;
-    width: 100%;
+    width: 100vw;
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     margin: 0;
     padding: 0;
 }
+
 .wrapper{
     position: relative;
     top: 5rem;
