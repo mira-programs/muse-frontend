@@ -43,8 +43,8 @@
         <h2 className="title">About</h2>
         <div className="grid">
           <div className="item">
-            <h3 className="item-title">Features</h3>
-            <p className="item-description">Not sure what to put here. Will check later</p>
+            <h3 className="item-title">What is MUSE?</h3>
+            <p className="item-description">MUSE is a collaborative platform designed specifically for artists and authors to share their work and offer their skills to those needing them. Share your art and collaborate with other artists near you!</p>
           </div>
         </div>            
       </div>
@@ -56,22 +56,26 @@
           <div className="item">
             <h3 className="item-title">Dala <span>Ibrahim</span></h3>
             <img src="" alt="" />
-            <p className="item-description">Not sure what to put here. Will check later</p>
+            <h4 className="test">Developer</h4>
+            <p className="item-description">dalaibrahim@gmail.com</p>
           </div>
           <div className="item">
             <h3 className="item-title">Maya <span>Taliha</span></h3>
             <img src="" alt="" />
-            <p className="item-description">Not sure what to put here. Will check later</p>
+            <h4 className="test">Developer</h4>
+            <p className="item-description">mayataliha@gmail.com</p>
           </div>
           <div className="item">
             <h3 className="item-title">Mira <span>Hussein</span></h3>
             <img src="" alt="" />
-            <p className="item-description">Not sure what to put here. Will check later</p>
+            <h4 className="test">Developer</h4>
+            <p className="item-description">mirahussein06@gmail.com</p>
           </div>
           <div className="item">
             <h3 className="item-title">Mariam <span>Sonji</span></h3>
             <img src="" alt="" />
-            <p className="item-description">Not sure what to put here. Will check later</p>
+            <h4 className="test">Developer</h4>
+            <p className="item-description">mariam.sonji04@gmail.com</p>
           </div>
         </div>
       </div>             
@@ -80,8 +84,11 @@
         {!isHeroSection('contact') && <div className="solid-color-background"></div>}
         <h2 className="title">Contact Us</h2>
         <div className="grid">
-          {/* Contact information */}
-        </div>
+        <div className="item">
+            <h3 className="item-title">Send us an email with any concerns and feedback!</h3>
+            <img src="" alt="" />
+            <p className="item-description">musecollaborate@gmail.com</p>
+          </div>        </div>
       </div>
     </div>
   );
