@@ -31,7 +31,7 @@ export default function Router() {
          <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/home" element={<Homepage />} />
-            <Route path="/muser" element={<Muser />} />
+            <Route path="/muser/:muserId" element={<Muser />} />
             <Route path="/posts/user/:id" element={<Post />} />
             <Route path="/create" element={<CreatePost />} />
             <Route path="/myposts/:id" element={<DashBoard />} />

@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { PiUserCircleDuotone } from "react-icons/pi";
 import { MdOutlineReportProblem } from "react-icons/md";
 import './Muser.css';
+
 
 export default function Muser() {
   const [muser, setMuser] = useState([]);
@@ -14,7 +15,7 @@ export default function Muser() {
   const fetchUserData = async () => {
     try {
       // Replace 'backend_endpoint' with the actual endpoint to fetch user data
-      const response = await fetch('backend_endpoint');
+      const response = await fetch('http://localhost:8080/muser/${params.muserId}');
       const userData = await response.json();
       setMuser(userData);
     } catch (error) {
@@ -23,6 +24,7 @@ export default function Muser() {
   };
 
   //add reports button to header
+  const params = useParams();
 
   return (
     <section className="muser">

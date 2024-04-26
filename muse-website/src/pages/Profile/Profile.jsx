@@ -70,7 +70,7 @@ export default function Profile() {
           'Content-Type': 'multipart/form-data'
         }
       });
-      
+
 
     if (response.status === 200 || response.status === 201) {
       console.log('Profile updated successfully:', response.data);

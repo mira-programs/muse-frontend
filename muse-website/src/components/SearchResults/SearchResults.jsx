@@ -21,7 +21,6 @@ const SearchResults = ({ results, isLoading, error, searchType }) => {
                             authorName={item.authorName}
                             profilePicture={item.profilePicture}
                         />
-    
                 </div>
             ))}
         </div>

@@ -10,7 +10,7 @@ export default function PostItem({ postID, Image, tags, muserID, title, des, pro
 
 
     return (
-        <article className="post">
+        <Link className="post" to = {`/muser/${muserID}`}>
             <div className="post-image">
                 <img src={src} alt={title} />
             </div>
@@ -30,6 +30,6 @@ export default function PostItem({ postID, Image, tags, muserID, title, des, pro
                     </div>
                 </div>
             </div>
-        </article>
+        </Link>
     );
 }
