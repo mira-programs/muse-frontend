@@ -1,5 +1,5 @@
 .login {
-    background-image: url('../../assets/loginbg2.jpg');
+    background-image: url('../../assets/loginbg1.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -48,7 +48,7 @@
 
 /* Adjust the width and margin of inputs to be responsive and centered */
 input, select, textarea {
-    background: #eadbcb;
+    /* background: #eadbcb; */
     width: 100%;
     padding: 0.7rem 3rem;
     border-radius: var(--border-radius);

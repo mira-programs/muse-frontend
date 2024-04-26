@@ -64,7 +64,7 @@ const Homepage = () => {
       <div className="search-bar-container">
         {searchMode === 'users' ? (
           <input
-            className="search-bar"
+            className="search-bar user-bar"
             type="text" 
             placeholder="Search Users..."
             value={searchTerm}
