@@ -15,17 +15,15 @@ const Posts = ({ searchMode, searchTerm, searchInitiated }) => {
       setLoading(true);
       setError(null);
       try {
-        let url = 'http://localhost:8080/posts';
 
         if (searchInitiated) {  
-          url = 'http://localhost:8080/search'; 
-          const payload = {
-            ...(searchMode === 'username' ? { username: searchTerm } : { tags: searchTerm.split(', ').map(tag => tag.trim()) })
-          };
-          const response = await axios.post(url, search);
+          const response = await axios.get('http://localhost:8080/search', {params : {type:searchMode==='users'?'username':'tags', 
+                                                                                    query:searchTerm}});
           setPosts(response.data);
+
+
         } else {
-          const response = await axios.get(url);
+          const response = await axios.get('http://localhost:8080/posts');
           setPosts(response.data);
         }
       } catch (error) {

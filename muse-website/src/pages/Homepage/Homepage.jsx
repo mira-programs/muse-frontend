@@ -5,14 +5,18 @@ import Posts from '../../components/Posts/Posts';
 import Select from 'react-select';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import SearchBar from '../../components/SearchBar/SearchBar';
+import SearchResults from '../../components/SearchResults/SearchResults';
 
 const Homepage = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [searchMode, setSearchMode] = useState('users');
+  const [searchType, setSearchType] = useState('users');
   const [selectedTags, setSelectedTags] = useState([]);
   const [tags, setTags] = useState([]);
   const [error, setError] = useState(null);
-  const [searchResults, setSearchResults] = useState([]);
+  const [results, setResults] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [searchInitiated, setSearchInitiated] = useState(false);
 
   useEffect(() => {
     // Fetch the tag list from backend or define statically if not dynamic
@@ -22,79 +26,34 @@ const Homepage = () => {
              'Romance', 'Adventure', 'History', 'Technology', 'Futurism']);
   }, []);
   
-  const handleSearchChange = (event) => {
-    setSearchTerm(event.target.value);
-  };
 
-  const handleSearchModeChange = (mode) => {
-    setSearchMode(mode);
-    setSearchTerm('');
-  };
-
-  const handleTagSelect = (selectedOption) => {
-    setSelectedTags(selectedOption);
-    const selectedValues = selectedOption.map(option => option.value);
-    setSearchTerm(selectedValues.join(', '));
-    setSearchMode('tags');
-  };
-
-  const handleSearchClick = async () => {
-    if (!searchTerm) {
-      alert("Please enter a search term.");
-      return;
-    }
-  
+  const handleSearch = async (searchType, searchTerm) => {
+    setSearchInitiated(true);
+    setIsLoading(true);
+    setError('');
     try {
-      const searchType = searchMode === 'users' ? 'username' : 'tags';
-      const response = await axios.get(`http://localhost:8080/search`, {
-        params: {
-          type: searchType,
-          query: searchTerm
-        }
-      });
-      setSearchResults(response.data); 
-    } catch (error) {
-      console.error('Search failed:', error);
-      setError('Failed to fetch search results');
+      const response = await axios.get('http://localhost:8080/search', { params: { type: searchType === 'users' ? 'username' : 'tags', query: searchTerm }});
+        setResults(response.data);
+    } catch (err) {
+        setError(err.response?.data?.error || 'Unknown error');
+        setResults([]);
+    } finally {
+        setIsLoading(false);
     }
 };
 
+
   return (
     <div>
-      <div className="search-bar-container">
-        {searchMode === 'users' ? (
-          <input
-            className="search-bar"
-            type="text" 
-            placeholder="Search Users..."
-            value={searchTerm}
-            onChange={handleSearchChange}
-          />
-        ) : (
-          <Select
-            className="search-bar"
-            isMulti
-            value={selectedTags}
-            options={tags.map(tag => ({ value: tag, label: tag }))}
-            onChange={handleTagSelect}
-            placeholder="Select tags..."
-          />
-        )}
-        <div className="search-mode-toggle">
-          <select
-            value={searchMode}
-            onChange={(e) => handleSearchModeChange(e.target.value)}
-          >
-            <option value="users">User</option>
-            <option value="tags">Post</option>
-          </select>
-        </div>
-        <button className="search-icon" onClick={handleSearchClick}><CgSearch /></button>
-      </div>
+      <SearchBar onSearch={handleSearch} />
+        {searchInitiated?(
+          <SearchResults isLoading={isLoading} results={results} error={error} searchType={searchType} />
 
-      <div className="userPosts-container">
-        <Posts searchTerm={searchTerm} searchMode={searchMode} />
-      </div>
+        ):(
+          <div className="userPosts-container">
+          <Posts/>
+        </div>
+        )}
     </div>
   );
 };

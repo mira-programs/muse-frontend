@@ -4,7 +4,7 @@ import PostAuthor from '../PostAuthor/PostAuthor';
 
 export default function PostItem({ postID, Image, tags, muserID, title, des, profileID, authorName, profilePicture }) {
     const shortTitle = title.length > 40 ? title.substr(0, 30) + '...' : title;
-    const shortDes = des.length > 145 ? des.substr(0, 145) + '...' : des;
+    // const shortDes = des.length > 145 ? des.substr(0, 145) + '...' : des;
     const src = `data:image/jpg;base64,${Image}`;
 
 
@@ -18,9 +18,11 @@ export default function PostItem({ postID, Image, tags, muserID, title, des, pro
                 <Link to={`posts/${postID}`}>
                     <h3>{shortTitle}</h3>
                 </Link>
-                <p>{shortDes}</p>
+                <p>{des}</p>
                 <div className="post-footer">
-                    <PostAuthor muserID={muserID} />
+                    <div>
+                  
+                    </div>
                     <div className="post-tags">
                         {tags && tags.length > 0 && tags.map((tag, index) => (
                             <span key={index} className="tag">{typeof tag === 'string' ? tag : tag.name}</span>
